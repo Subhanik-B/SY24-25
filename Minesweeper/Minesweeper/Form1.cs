@@ -68,9 +68,18 @@ namespace Minesweeper
             }
             if(e.Button == MouseButtons.Left)
             {
-                //(sender as Button).BackgroundImage = pictureBox2.Image;
-                (sender as Button).BackColor = Color.Red;
-                mine = true;
+                if (!mine)
+                {
+                    (sender as Button).BackgroundImage = pictureBox2.Image;
+                    mine = true;
+                }
+                else
+                {
+                    (sender as Button).BackgroundImage = null;
+                    mine = false;
+                }
+                //(sender as Button).BackColor = Color.Red;
+                
             }
         }
 
