@@ -40,9 +40,11 @@ namespace Minesweeper
         }
         private void button101_Click(object sender, EventArgs e)
         {
-            for (int b = 0; b <= 10; b++)
+            int c = 0;
+            int.TryParse(textBox1.Text, out c);
+            for (int b = 0; b <= c; b++)
             {
-                int a = random.Next(1, 100);
+                int a = random.Next(0, 100);
                 btn[a].BackColor = Color.Red;
                 //btn[a].BackgroundImage = pictureBox2.Image;
                 //btn[a].ForeColor = Color.Gray;
@@ -68,7 +70,7 @@ namespace Minesweeper
             }
             if(e.Button == MouseButtons.Left)
             {
-                if (!mine)
+                /*if (!mine)
                 {
                     (sender as Button).BackgroundImage = pictureBox2.Image;
                     mine = true;
@@ -78,7 +80,8 @@ namespace Minesweeper
                     (sender as Button).BackgroundImage = null;
                     mine = false;
                 }
-                //(sender as Button).BackColor = Color.Red;
+                */
+                (sender as Button).BackColor = Color.Red;
                 
             }
         }
@@ -86,6 +89,15 @@ namespace Minesweeper
         private void b2_Click(object sender, EventArgs e)
         {
             getIndex(sender as Button);
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                btn[i].BackColor = Color.Green;
+                tileGrid[i] = new Tile(btn[i]);
+            }
         }
     }
 }
