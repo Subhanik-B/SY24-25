@@ -45,10 +45,22 @@ namespace Minesweeper
             for (int b = 0; b < c; b++)
             {
                 int a = random.Next(0, 100);
-                btn[a].BackColor = Color.Red;
+                if (tileGrid[a].isMine() == false)
+                {
+                    btn[a].BackColor = Color.Red;
+                    tileGrid[a].setMine(true);
+                    label1.Text += a.ToString() + ", ";
+                }
+                else
+                {
+                    a = random.Next(0, 100);
+                    btn[a].BackColor = Color.Red;
+                    tileGrid[a].setMine(true);
+                    label1.Text += a.ToString() + ", ";
+                }
                 //btn[a].BackgroundImage = pictureBox2.Image;
                 //btn[a].ForeColor = Color.Gray;
-                label1.Text += a.ToString() + ", ";
+                
             }
         }
         bool flag = false;
@@ -97,6 +109,7 @@ namespace Minesweeper
             {
                 btn[i].BackColor = Color.Green;
                 tileGrid[i] = new Tile(btn[i]);
+                label1.Text = "";
             }
         }
     }

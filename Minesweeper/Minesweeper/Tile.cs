@@ -9,12 +9,29 @@ namespace Minesweeper
 {
     internal class Tile
     {
-        Button m_b;
-        bool m_flag;
+        private Button m_b;
+        private bool m_flag;
+        int nearbymine;
+        bool mine;
+        private bool dug;
+
         public Tile(Button b)
         {
             m_b = b;
-            m_flag = false;
+            m_b.BackColor = System.Drawing.Color.Green;
+        }
+        public void setMine(Boolean b)
+        {
+            mine = b;
+        }
+        public bool isMine() { return mine; }
+        public void setDug(Boolean b)
+        {
+            dug = b;
+        }
+        public void setFlag(Boolean b)
+        {
+            m_flag = b;
         }
     }
 }
