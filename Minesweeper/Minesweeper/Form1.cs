@@ -42,7 +42,7 @@ namespace Minesweeper
         {
             int c = 0;
             int.TryParse(textBox1.Text, out c);
-            for (int b = 0; b <= c; b++)
+            for (int b = 0; b < c; b++)
             {
                 int a = random.Next(0, 100);
                 btn[a].BackColor = Color.Red;
