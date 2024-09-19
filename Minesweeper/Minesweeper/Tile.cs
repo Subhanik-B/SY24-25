@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,11 @@ namespace Minesweeper
     internal class Tile
     {
         private Button m_b;
-        private bool m_flag;
+        private bool flag;
         int nearbymine;
         bool mine;
         private bool dug;
+        Image flagImage;
 
         public Tile(Button b)
         {
@@ -31,7 +33,13 @@ namespace Minesweeper
         }
         public void setFlag(Boolean b)
         {
-            m_flag = b;
+            m_b.BackgroundImage = flagImage;
+            flag = b;
         }
+        public void button_MouseDown(object sender)
+        {
+
+        }
+        public void setFlagImage(Image image) { flagImage = image; }
     }
 }

@@ -23,7 +23,6 @@ namespace Minesweeper
             for(int i = 0; i < 100; i++)
             {
                 btn[i] = (Button)Controls["b" + (i+1)];
-                btn[i].BackColor = Color.Green;
                 tileGrid[i] = new Tile(btn[i]);
             }
         }
@@ -67,18 +66,11 @@ namespace Minesweeper
         bool mine = false;
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
+            Button b = sender as Button;
+            Tile t = tileGrid[getIndex(b)];
             if (e.Button == MouseButtons.Right)
             {
-                if (flag == false && mine == false)
-                {
-                    (sender as Button).BackgroundImage = pictureBox1.Image;
-                    flag = true;
-                }
-                else if (flag == true && mine == false)
-                {
-                    (sender as Button).BackgroundImage = null;
-                    flag = false;
-                }
+                t.setFlag(!flag);
             }
             if(e.Button == MouseButtons.Left)
             {
@@ -110,6 +102,7 @@ namespace Minesweeper
                 btn[i].BackColor = Color.Green;
                 tileGrid[i] = new Tile(btn[i]);
                 label1.Text = "";
+                tileGrid[i].setFlagImage(pictureBox1.Image);
             }
         }
     }
