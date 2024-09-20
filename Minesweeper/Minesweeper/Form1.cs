@@ -19,11 +19,22 @@ namespace Minesweeper
         public Form1()
         {
             InitializeComponent();
-
-            for(int i = 0; i < 100; i++)
+            // set up arrays
+            for (int i = 0; i < 100; i++)
             {
                 btn[i] = (Button)Controls["b" + (i+1)];
                 tileGrid[i] = new Tile(btn[i]);
+                tileGrid[i].setFlagImage(pictureBox1.Image); 
+            }
+            // mine generator
+            for (int b = 0; b <= 15; b++)
+            {
+                int a = random.Next(0, 100);
+                while (tileGrid[a].isMine() == true)
+                {
+                    a = random.Next(0, 100);
+                }
+                tileGrid[a].setMine(true);
             }
         }
         private Button getButton(int r, int c)
@@ -37,64 +48,78 @@ namespace Minesweeper
             int.TryParse(tmp, out retVal);
             return retVal - 1;
         }
-        private void button101_Click(object sender, EventArgs e)
-        {
-            int c = 0;
-            int.TryParse(textBox1.Text, out c);
-            for (int b = 0; b < c; b++)
-            {
-                int a = random.Next(0, 100);
-                if (tileGrid[a].isMine() == false)
-                {
-                    btn[a].BackColor = Color.Red;
-                    tileGrid[a].setMine(true);
-                    label1.Text += a.ToString() + ", ";
-                }
-                else
-                {
-                    a = random.Next(0, 100);
-                    btn[a].BackColor = Color.Red;
-                    tileGrid[a].setMine(true);
-                    label1.Text += a.ToString() + ", ";
-                }
-                //btn[a].BackgroundImage = pictureBox2.Image;
-                //btn[a].ForeColor = Color.Gray;
-                
-            }
-        }
-        bool flag = false;
-        bool mine = false;
+
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             Button b = sender as Button;
             Tile t = tileGrid[getIndex(b)];
             if (e.Button == MouseButtons.Right)
             {
-                t.setFlag(!flag);
+                if(t.isFlag() == false)
+                {
+                    t.setFlag(true);
+                }
             }
             if(e.Button == MouseButtons.Left)
             {
-                /*if (!mine)
+                if(t.isFlag() == true)
                 {
-                    (sender as Button).BackgroundImage = pictureBox2.Image;
-                    mine = true;
+                    t.setFlagImage(null);
+                    t.setFlag(false);
+                    t.setFlagImage(pictureBox1.Image);
                 }
-                else
+                if (t.isMine() == true)
                 {
-                    (sender as Button).BackgroundImage = null;
-                    mine = false;
+                    label1.Text = "GAME OVER!";
+
                 }
-                */
-                (sender as Button).BackColor = Color.Red;
-                
+                if (t.isMine() == false)
+                {
+                    t.setDug(true);
+                    checkMine(b);
+                }
             }
         }
 
-        private void b2_Click(object sender, EventArgs e)
+        private void checkMine(Button b)
         {
-            getIndex(sender as Button);
+            int a = 0;
+            int tracker = 0;
+            int.TryParse(b.Name.Substring(1), out a);
+            if (tileGrid[a + 1].isMine())
+            {
+                tracker += 1;
+            }
+            if (tileGrid[a - 1].isMine())
+            {
+                tracker += 1;
+            }
+            if (tileGrid[a + 10].isMine())
+            {
+                tracker += 1;
+            }
+            if (tileGrid[a - 10].isMine())
+            {
+                tracker += 1;
+            }
+            if (tileGrid[a + 11].isMine())
+            {
+                tracker += 1;
+            }
+            if (tileGrid[a - 11].isMine())
+            {
+                tracker += 1;
+            }
+            if (tileGrid[a + 9].isMine())
+            {
+                tracker += 1;
+            }
+            if (tileGrid[a - 9].isMine())
+            {
+                tracker += 1;
+            }
+            b.Text = tracker.ToString();
         }
-
         private void ResetButton_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < 100; i++)
@@ -102,7 +127,6 @@ namespace Minesweeper
                 btn[i].BackColor = Color.Green;
                 tileGrid[i] = new Tile(btn[i]);
                 label1.Text = "";
-                tileGrid[i].setFlagImage(pictureBox1.Image);
             }
         }
     }

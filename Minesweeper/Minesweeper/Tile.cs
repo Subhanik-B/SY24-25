@@ -27,9 +27,14 @@ namespace Minesweeper
             mine = b;
         }
         public bool isMine() { return mine; }
+        public bool isFlag() { return flag; }
         public void setDug(Boolean b)
         {
             dug = b;
+            if(dug == true)
+            {
+                m_b.BackColor = System.Drawing.Color.White;
+            }
         }
         public void setFlag(Boolean b)
         {

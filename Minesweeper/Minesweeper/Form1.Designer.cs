@@ -159,7 +159,6 @@
             this.b2.Size = new System.Drawing.Size(25, 25);
             this.b2.TabIndex = 1;
             this.b2.UseVisualStyleBackColor = false;
-            this.b2.Click += new System.EventHandler(this.b2_Click);
             this.b2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
             // b3
@@ -1256,7 +1255,6 @@
             this.button101.TabIndex = 101;
             this.button101.Text = "Generate mines";
             this.button101.UseVisualStyleBackColor = true;
-            this.button101.Click += new System.EventHandler(this.button101_Click);
             // 
             // pictureBox2
             // 
