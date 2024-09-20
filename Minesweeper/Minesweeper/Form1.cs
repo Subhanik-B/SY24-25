@@ -70,6 +70,10 @@ namespace Minesweeper
                 }
                 if (t.isMine() == true)
                 {
+                    b.BackColor = Color.Red;
+                    t.setMineImage(pictureBox2.Image);
+                    t.setFlag(false);
+                    t.setMine(true);
                     label1.Text = "GAME OVER!";
 
                 }
@@ -86,39 +90,89 @@ namespace Minesweeper
             int a = 0;
             int tracker = 0;
             int.TryParse(b.Name.Substring(1), out a);
-            if (tileGrid[a + 1].isMine())
+            for (int x = -1; x < 2; x++)
             {
-                tracker += 1;
-            }
-            if (tileGrid[a - 1].isMine())
-            {
-                tracker += 1;
-            }
-            if (tileGrid[a + 10].isMine())
-            {
-                tracker += 1;
-            }
-            if (tileGrid[a - 10].isMine())
-            {
-                tracker += 1;
-            }
-            if (tileGrid[a + 11].isMine())
-            {
-                tracker += 1;
-            }
-            if (tileGrid[a - 11].isMine())
-            {
-                tracker += 1;
-            }
-            if (tileGrid[a + 9].isMine())
-            {
-                tracker += 1;
-            }
-            if (tileGrid[a - 9].isMine())
-            {
-                tracker += 1;
+                for (int y = -1; y < 2; y++)
+                {
+                    if (a + ((x * 10) + y) <= 100 && a + ((x * 10) + y) >= 0)
+                    {
+                        //shouldnt have stuff out of the array but it does :'(
+                        if (tileGrid[a + ((x* 10) + y)].isMine())
+                        {
+                            tracker++;
+                            if (x == 0)
+                            {
+                                if (y == 0)
+                                {
+                                    tracker--;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             b.Text = tracker.ToString();
+            /**
+            try
+            {
+                if (tileGrid[a + 1].isMine())
+                {
+                    tracker++;
+                }
+            }
+            catch (Exception ArrayIndexOutOfBounds) { }
+            try
+            {
+                if (tileGrid[a - 1].isMine())
+                {
+                    tracker++;
+                }
+            } catch(Exception ArrayIndexOutOfBounds) { }
+            try
+            {
+                if (tileGrid[a + 10].isMine())
+                {
+                    tracker++;
+                }
+            } catch (Exception ArrayIndexOutOfBounds) { }
+            try
+            {
+                if (tileGrid[a - 10].isMine())
+                {
+                    tracker++;
+                }
+            } catch( Exception ArrayIndexOutOfBounds) { }
+            try
+            {
+                if (tileGrid[a + 11].isMine())
+                {
+                    tracker++;
+                }
+            } catch( Exception ArrayIndexOutOfBounds) { }
+            try
+            {
+                if (tileGrid[a - 11].isMine())
+                {
+                    tracker++;
+                }
+            }
+            catch( Exception ArrayIndexOutOfBounds) { }
+            try
+            {
+                if (tileGrid[a + 9].isMine())
+                {
+                    tracker++;
+                }
+            } catch( Exception ArrayIndexOutOfBounds) { }
+            try
+            {
+                if (tileGrid[a - 9].isMine())
+                {
+                    tracker++;
+                }
+                b.Text = tracker.ToString();
+            } catch(Exception ArrayIndexOutOfBounds) { } 
+            **/
         }
         private void ResetButton_Click(object sender, EventArgs e)
         {
@@ -126,6 +180,7 @@ namespace Minesweeper
             {
                 btn[i].BackColor = Color.Green;
                 tileGrid[i] = new Tile(btn[i]);
+                btn[i].Text = "";
                 label1.Text = "";
             }
         }

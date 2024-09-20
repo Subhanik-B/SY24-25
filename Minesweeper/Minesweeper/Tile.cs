@@ -16,6 +16,7 @@ namespace Minesweeper
         bool mine;
         private bool dug;
         Image flagImage;
+        Image mineImage;
 
         public Tile(Button b)
         {
@@ -24,6 +25,7 @@ namespace Minesweeper
         }
         public void setMine(Boolean b)
         {
+            m_b.BackgroundImage = mineImage;
             mine = b;
         }
         public bool isMine() { return mine; }
@@ -46,5 +48,6 @@ namespace Minesweeper
 
         }
         public void setFlagImage(Image image) { flagImage = image; }
+        public void setMineImage(Image image) { mineImage = image; }
     }
 }
