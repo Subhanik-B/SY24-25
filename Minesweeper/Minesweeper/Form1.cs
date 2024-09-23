@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -14,27 +15,32 @@ namespace Minesweeper
     public partial class Form1 : Form
     {
         Random random = new Random();
-        Button[] btn = new Button[100];
-        Tile[] tileGrid = new Tile[100];
+        Button[,] btn = new Button[10,10];
+        Tile[,] tileGrid = new Tile[10,10];
         public Form1()
         {
             InitializeComponent();
             // set up arrays
-            for (int i = 0; i < 100; i++)
+            for (int x = 0; x < 10; x++)
             {
-                btn[i] = (Button)Controls["b" + (i+1)];
-                tileGrid[i] = new Tile(btn[i]);
-                tileGrid[i].setFlagImage(pictureBox1.Image); 
+                for (int y = 0; y < 10; y++)
+                {
+                    btn[x, y] = (Button)Controls[$"b{x}{y}"];
+                    tileGrid[x, y] = new Tile(btn[x, y]);
+                    tileGrid[x, y].setFlagImage(pictureBox1.Image);
+                }
             }
             // mine generator
             for (int b = 0; b <= 15; b++)
             {
-                int a = random.Next(0, 100);
-                while (tileGrid[a].isMine() == true)
+                int xRand = random.Next(0, 10);
+                int yRand = random.Next(0, 10);
+                while (tileGrid[xRand, yRand].isMine())
                 {
-                    a = random.Next(0, 100);
+                    xRand = random.Next(0, 10);
+                    yRand = random.Next(0, 10);
                 }
-                tileGrid[a].setMine(true);
+                tileGrid[xRand, yRand].setMine(true);
             }
         }
         private Button getButton(int r, int c)
@@ -52,7 +58,11 @@ namespace Minesweeper
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             Button b = sender as Button;
-            Tile t = tileGrid[getIndex(b)];
+            string index = b.Name.Substring(1);
+            char[] indexChar = index.ToCharArray();
+            int indexX = indexChar[0] - 48;
+            int indexY = indexChar[1] - 48;
+            Tile t = tileGrid[indexX, indexY];
             if (e.Button == MouseButtons.Right)
             {
                 if(t.isFlag() == false)
@@ -62,126 +72,98 @@ namespace Minesweeper
             }
             if(e.Button == MouseButtons.Left)
             {
-                if(t.isFlag() == true)
+                var isFlag = t.isFlag();
+                if (isFlag)
                 {
                     t.setFlagImage(null);
                     t.setFlag(false);
                     t.setFlagImage(pictureBox1.Image);
                 }
-                if (t.isMine() == true)
+                else
                 {
-                    b.BackColor = Color.Red;
-                    t.setMineImage(pictureBox2.Image);
-                    t.setFlag(false);
-                    t.setMine(true);
-                    label1.Text = "GAME OVER!";
+                    var isMine = t.isMine();
+                    if (isMine)
+                    {
+                        b.BackColor = Color.Red;
+                        t.setMineImage(pictureBox2.Image);
+                        t.setFlag(false);
+                        t.setMine(true);
+                        this.BackColor = Color.Red;
+                        label1.Text = "GAME OVER!";
+                    }
+                    else
+                    {
+                        t.setDug(true);
+                        checkMine(b);
+                    }
 
-                }
-                if (t.isMine() == false)
-                {
-                    t.setDug(true);
-                    checkMine(b);
                 }
             }
         }
 
         private void checkMine(Button b)
         {
-            int a = 0;
             int tracker = 0;
-            int.TryParse(b.Name.Substring(1), out a);
-            for (int x = -1; x < 2; x++)
+            string index = b.Name.Substring(1);
+            char[] indexChar = index.ToCharArray();
+            int indexX = indexChar[0] - 48;
+            int indexY = indexChar[1] - 48;
+            Debug.Print($"{indexX}, {indexY}");
+            for (int x = -1; x <= 1; x++)
             {
-                for (int y = -1; y < 2; y++)
+                for (int y = -1; y <= 1; y++)
                 {
-                    if (a + ((x * 10) + y) <= 100 && a + ((x * 10) + y) >= 0)
+                    if ((x + indexX < 10 && x + indexX >= 0) && (y + indexY < 10 && y + indexY >= 0))
                     {
                         //shouldnt have stuff out of the array but it does :'(
-                        if (tileGrid[a + ((x* 10) + y)].isMine())
+                        if (tileGrid[x + indexX, y + indexY].isMine())
                         {
-                            tracker++;
-                            if (x == 0)
+                            if (!tileGrid[x + indexX, y + indexY].dug)
                             {
-                                if (y == 0)
-                                {
-                                    tracker--;
-                                }
+                                tracker++;
                             }
                         }
                     }
                 }
             }
             b.Text = tracker.ToString();
-            /**
-            try
-            {
-                if (tileGrid[a + 1].isMine())
-                {
-                    tracker++;
-                }
-            }
-            catch (Exception ArrayIndexOutOfBounds) { }
-            try
-            {
-                if (tileGrid[a - 1].isMine())
-                {
-                    tracker++;
-                }
-            } catch(Exception ArrayIndexOutOfBounds) { }
-            try
-            {
-                if (tileGrid[a + 10].isMine())
-                {
-                    tracker++;
-                }
-            } catch (Exception ArrayIndexOutOfBounds) { }
-            try
-            {
-                if (tileGrid[a - 10].isMine())
-                {
-                    tracker++;
-                }
-            } catch( Exception ArrayIndexOutOfBounds) { }
-            try
-            {
-                if (tileGrid[a + 11].isMine())
-                {
-                    tracker++;
-                }
-            } catch( Exception ArrayIndexOutOfBounds) { }
-            try
-            {
-                if (tileGrid[a - 11].isMine())
-                {
-                    tracker++;
-                }
-            }
-            catch( Exception ArrayIndexOutOfBounds) { }
-            try
-            {
-                if (tileGrid[a + 9].isMine())
-                {
-                    tracker++;
-                }
-            } catch( Exception ArrayIndexOutOfBounds) { }
-            try
-            {
-                if (tileGrid[a - 9].isMine())
-                {
-                    tracker++;
-                }
-                b.Text = tracker.ToString();
-            } catch(Exception ArrayIndexOutOfBounds) { } 
-            **/
         }
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 100; i++)
+            for (int x = 0; x < 10; x++)
             {
-                btn[i].BackColor = Color.Green;
-                tileGrid[i] = new Tile(btn[i]);
-                btn[i].Text = "";
-                label1.Text = "";
+                for (int y = 0;  y < 10; y++)
+                {
+                    tileGrid[x, y].setFlagImage(null);
+                    tileGrid[x, y].setMineImage(null);
+                    tileGrid[x, y].setFlag(false);
+                    tileGrid[x, y].setMine(false);
+                    btn[x, y].BackColor = Color.Green;
+                    tileGrid[x, y] = new Tile(btn[x, y]);
+                    btn[x, y].Text = "";
+                    label1.Text = "";
+                    this.BackColor = Color.White;
+                }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int checker = 0;
+            for (int x = 0; x < 10; x++)
+            {
+                for (int y = 0; y < 10; y++)
+                {
+                    if (tileGrid[x, y].dug && !tileGrid[x, y].isMine())
+                    {
+                        checker++;
+                    }
+                }
+            }
+            if(checker == (100 - 15))
+            {
+                this.BackColor = Color.Green;
+                label1.Text = "YOU WIN!!";
             }
         }
     }

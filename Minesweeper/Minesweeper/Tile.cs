@@ -11,10 +11,10 @@ namespace Minesweeper
     internal class Tile
     {
         private Button m_b;
-        private bool flag;
+        public bool flag { get; private set; }
         int nearbymine;
         bool mine;
-        private bool dug;
+        public bool dug { get; private set; }
         Image flagImage;
         Image mineImage;
 

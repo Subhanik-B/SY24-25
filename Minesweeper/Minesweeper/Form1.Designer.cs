@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.b1 = new System.Windows.Forms.Button();
-            this.b2 = new System.Windows.Forms.Button();
-            this.b3 = new System.Windows.Forms.Button();
-            this.b4 = new System.Windows.Forms.Button();
-            this.b5 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.b01 = new System.Windows.Forms.Button();
+            this.b02 = new System.Windows.Forms.Button();
+            this.b03 = new System.Windows.Forms.Button();
+            this.b04 = new System.Windows.Forms.Button();
+            this.b05 = new System.Windows.Forms.Button();
             this.b10 = new System.Windows.Forms.Button();
-            this.b9 = new System.Windows.Forms.Button();
-            this.b8 = new System.Windows.Forms.Button();
-            this.b7 = new System.Windows.Forms.Button();
-            this.b6 = new System.Windows.Forms.Button();
+            this.b09 = new System.Windows.Forms.Button();
+            this.b08 = new System.Windows.Forms.Button();
+            this.b07 = new System.Windows.Forms.Button();
+            this.b06 = new System.Windows.Forms.Button();
             this.b20 = new System.Windows.Forms.Button();
             this.b19 = new System.Windows.Forms.Button();
             this.b18 = new System.Windows.Forms.Button();
@@ -118,7 +119,7 @@
             this.b83 = new System.Windows.Forms.Button();
             this.b82 = new System.Windows.Forms.Button();
             this.b81 = new System.Windows.Forms.Button();
-            this.b100 = new System.Windows.Forms.Button();
+            this.b00 = new System.Windows.Forms.Button();
             this.b99 = new System.Windows.Forms.Button();
             this.b98 = new System.Windows.Forms.Button();
             this.b97 = new System.Windows.Forms.Button();
@@ -129,131 +130,129 @@
             this.b92 = new System.Windows.Forms.Button();
             this.b91 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button101 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ResetButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // b1
+            // b01
             // 
-            this.b1.BackColor = System.Drawing.Color.DarkGray;
-            this.b1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b1.Location = new System.Drawing.Point(230, 63);
-            this.b1.Name = "b1";
-            this.b1.Size = new System.Drawing.Size(25, 25);
-            this.b1.TabIndex = 0;
-            this.b1.UseVisualStyleBackColor = false;
-            this.b1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b01.BackColor = System.Drawing.Color.DarkGray;
+            this.b01.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b01.Location = new System.Drawing.Point(230, 63);
+            this.b01.Name = "b01";
+            this.b01.Size = new System.Drawing.Size(25, 25);
+            this.b01.TabIndex = 0;
+            this.b01.UseVisualStyleBackColor = false;
+            this.b01.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b2
+            // b02
             // 
-            this.b2.BackColor = System.Drawing.Color.DarkGray;
-            this.b2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b2.Location = new System.Drawing.Point(259, 63);
-            this.b2.Name = "b2";
-            this.b2.Size = new System.Drawing.Size(25, 25);
-            this.b2.TabIndex = 1;
-            this.b2.UseVisualStyleBackColor = false;
-            this.b2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b02.BackColor = System.Drawing.Color.DarkGray;
+            this.b02.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b02.Location = new System.Drawing.Point(259, 63);
+            this.b02.Name = "b02";
+            this.b02.Size = new System.Drawing.Size(25, 25);
+            this.b02.TabIndex = 1;
+            this.b02.UseVisualStyleBackColor = false;
+            this.b02.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b3
+            // b03
             // 
-            this.b3.BackColor = System.Drawing.Color.DarkGray;
-            this.b3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b3.Location = new System.Drawing.Point(288, 63);
-            this.b3.Name = "b3";
-            this.b3.Size = new System.Drawing.Size(25, 25);
-            this.b3.TabIndex = 2;
-            this.b3.UseVisualStyleBackColor = false;
-            this.b3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b03.BackColor = System.Drawing.Color.DarkGray;
+            this.b03.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b03.Location = new System.Drawing.Point(288, 63);
+            this.b03.Name = "b03";
+            this.b03.Size = new System.Drawing.Size(25, 25);
+            this.b03.TabIndex = 2;
+            this.b03.UseVisualStyleBackColor = false;
+            this.b03.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b4
+            // b04
             // 
-            this.b4.BackColor = System.Drawing.Color.DarkGray;
-            this.b4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b4.Location = new System.Drawing.Point(317, 63);
-            this.b4.Name = "b4";
-            this.b4.Size = new System.Drawing.Size(25, 25);
-            this.b4.TabIndex = 3;
-            this.b4.UseVisualStyleBackColor = false;
-            this.b4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b04.BackColor = System.Drawing.Color.DarkGray;
+            this.b04.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b04.Location = new System.Drawing.Point(317, 63);
+            this.b04.Name = "b04";
+            this.b04.Size = new System.Drawing.Size(25, 25);
+            this.b04.TabIndex = 3;
+            this.b04.UseVisualStyleBackColor = false;
+            this.b04.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b5
+            // b05
             // 
-            this.b5.BackColor = System.Drawing.Color.DarkGray;
-            this.b5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b5.Location = new System.Drawing.Point(346, 63);
-            this.b5.Name = "b5";
-            this.b5.Size = new System.Drawing.Size(25, 25);
-            this.b5.TabIndex = 4;
-            this.b5.UseVisualStyleBackColor = false;
-            this.b5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b05.BackColor = System.Drawing.Color.DarkGray;
+            this.b05.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b05.Location = new System.Drawing.Point(346, 63);
+            this.b05.Name = "b05";
+            this.b05.Size = new System.Drawing.Size(25, 25);
+            this.b05.TabIndex = 4;
+            this.b05.UseVisualStyleBackColor = false;
+            this.b05.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
             // b10
             // 
             this.b10.BackColor = System.Drawing.Color.DarkGray;
             this.b10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b10.Location = new System.Drawing.Point(491, 63);
+            this.b10.Location = new System.Drawing.Point(199, 94);
             this.b10.Name = "b10";
             this.b10.Size = new System.Drawing.Size(25, 25);
             this.b10.TabIndex = 9;
             this.b10.UseVisualStyleBackColor = false;
             this.b10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b9
+            // b09
             // 
-            this.b9.BackColor = System.Drawing.Color.DarkGray;
-            this.b9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b9.Location = new System.Drawing.Point(462, 63);
-            this.b9.Name = "b9";
-            this.b9.Size = new System.Drawing.Size(25, 25);
-            this.b9.TabIndex = 8;
-            this.b9.UseVisualStyleBackColor = false;
-            this.b9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b09.BackColor = System.Drawing.Color.DarkGray;
+            this.b09.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b09.Location = new System.Drawing.Point(462, 63);
+            this.b09.Name = "b09";
+            this.b09.Size = new System.Drawing.Size(25, 25);
+            this.b09.TabIndex = 8;
+            this.b09.UseVisualStyleBackColor = false;
+            this.b09.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b8
+            // b08
             // 
-            this.b8.BackColor = System.Drawing.Color.DarkGray;
-            this.b8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b8.Location = new System.Drawing.Point(433, 63);
-            this.b8.Name = "b8";
-            this.b8.Size = new System.Drawing.Size(25, 25);
-            this.b8.TabIndex = 7;
-            this.b8.UseVisualStyleBackColor = false;
-            this.b8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b08.BackColor = System.Drawing.Color.DarkGray;
+            this.b08.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b08.Location = new System.Drawing.Point(433, 63);
+            this.b08.Name = "b08";
+            this.b08.Size = new System.Drawing.Size(25, 25);
+            this.b08.TabIndex = 7;
+            this.b08.UseVisualStyleBackColor = false;
+            this.b08.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b7
+            // b07
             // 
-            this.b7.BackColor = System.Drawing.Color.DarkGray;
-            this.b7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b7.Location = new System.Drawing.Point(404, 63);
-            this.b7.Name = "b7";
-            this.b7.Size = new System.Drawing.Size(25, 25);
-            this.b7.TabIndex = 6;
-            this.b7.UseVisualStyleBackColor = false;
-            this.b7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b07.BackColor = System.Drawing.Color.DarkGray;
+            this.b07.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b07.Location = new System.Drawing.Point(404, 63);
+            this.b07.Name = "b07";
+            this.b07.Size = new System.Drawing.Size(25, 25);
+            this.b07.TabIndex = 6;
+            this.b07.UseVisualStyleBackColor = false;
+            this.b07.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b6
+            // b06
             // 
-            this.b6.BackColor = System.Drawing.Color.DarkGray;
-            this.b6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b6.Location = new System.Drawing.Point(375, 63);
-            this.b6.Name = "b6";
-            this.b6.Size = new System.Drawing.Size(25, 25);
-            this.b6.TabIndex = 5;
-            this.b6.UseVisualStyleBackColor = false;
-            this.b6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b06.BackColor = System.Drawing.Color.DarkGray;
+            this.b06.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b06.Location = new System.Drawing.Point(375, 63);
+            this.b06.Name = "b06";
+            this.b06.Size = new System.Drawing.Size(25, 25);
+            this.b06.TabIndex = 5;
+            this.b06.UseVisualStyleBackColor = false;
+            this.b06.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
             // b20
             // 
             this.b20.BackColor = System.Drawing.Color.DarkGray;
             this.b20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b20.Location = new System.Drawing.Point(491, 94);
+            this.b20.Location = new System.Drawing.Point(199, 125);
             this.b20.Name = "b20";
             this.b20.Size = new System.Drawing.Size(25, 25);
             this.b20.TabIndex = 19;
@@ -363,7 +362,7 @@
             // 
             this.b30.BackColor = System.Drawing.Color.DarkGray;
             this.b30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b30.Location = new System.Drawing.Point(491, 125);
+            this.b30.Location = new System.Drawing.Point(199, 156);
             this.b30.Name = "b30";
             this.b30.Size = new System.Drawing.Size(25, 25);
             this.b30.TabIndex = 29;
@@ -473,7 +472,7 @@
             // 
             this.b40.BackColor = System.Drawing.Color.DarkGray;
             this.b40.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b40.Location = new System.Drawing.Point(491, 156);
+            this.b40.Location = new System.Drawing.Point(199, 187);
             this.b40.Name = "b40";
             this.b40.Size = new System.Drawing.Size(25, 25);
             this.b40.TabIndex = 39;
@@ -583,7 +582,7 @@
             // 
             this.b50.BackColor = System.Drawing.Color.DarkGray;
             this.b50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b50.Location = new System.Drawing.Point(491, 187);
+            this.b50.Location = new System.Drawing.Point(199, 218);
             this.b50.Name = "b50";
             this.b50.Size = new System.Drawing.Size(25, 25);
             this.b50.TabIndex = 49;
@@ -693,7 +692,7 @@
             // 
             this.b60.BackColor = System.Drawing.Color.DarkGray;
             this.b60.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b60.Location = new System.Drawing.Point(491, 218);
+            this.b60.Location = new System.Drawing.Point(199, 249);
             this.b60.Name = "b60";
             this.b60.Size = new System.Drawing.Size(25, 25);
             this.b60.TabIndex = 59;
@@ -803,7 +802,7 @@
             // 
             this.b70.BackColor = System.Drawing.Color.DarkGray;
             this.b70.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b70.Location = new System.Drawing.Point(491, 249);
+            this.b70.Location = new System.Drawing.Point(199, 280);
             this.b70.Name = "b70";
             this.b70.Size = new System.Drawing.Size(25, 25);
             this.b70.TabIndex = 69;
@@ -913,7 +912,7 @@
             // 
             this.b80.BackColor = System.Drawing.Color.DarkGray;
             this.b80.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b80.Location = new System.Drawing.Point(491, 280);
+            this.b80.Location = new System.Drawing.Point(199, 311);
             this.b80.Name = "b80";
             this.b80.Size = new System.Drawing.Size(25, 25);
             this.b80.TabIndex = 79;
@@ -1023,7 +1022,7 @@
             // 
             this.b90.BackColor = System.Drawing.Color.DarkGray;
             this.b90.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b90.Location = new System.Drawing.Point(491, 311);
+            this.b90.Location = new System.Drawing.Point(199, 342);
             this.b90.Name = "b90";
             this.b90.Size = new System.Drawing.Size(25, 25);
             this.b90.TabIndex = 89;
@@ -1129,16 +1128,16 @@
             this.b81.UseVisualStyleBackColor = false;
             this.b81.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
-            // b100
+            // b00
             // 
-            this.b100.BackColor = System.Drawing.Color.DarkGray;
-            this.b100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b100.Location = new System.Drawing.Point(491, 342);
-            this.b100.Name = "b100";
-            this.b100.Size = new System.Drawing.Size(25, 25);
-            this.b100.TabIndex = 99;
-            this.b100.UseVisualStyleBackColor = false;
-            this.b100.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.b00.BackColor = System.Drawing.Color.DarkGray;
+            this.b00.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b00.Location = new System.Drawing.Point(199, 63);
+            this.b00.Name = "b00";
+            this.b00.Size = new System.Drawing.Size(25, 25);
+            this.b00.TabIndex = 99;
+            this.b00.UseVisualStyleBackColor = false;
+            this.b00.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
             // b99
             // 
@@ -1247,15 +1246,6 @@
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 100;
             // 
-            // button101
-            // 
-            this.button101.Location = new System.Drawing.Point(661, 409);
-            this.button101.Name = "button101";
-            this.button101.Size = new System.Drawing.Size(127, 23);
-            this.button101.TabIndex = 101;
-            this.button101.Text = "Generate mines";
-            this.button101.UseVisualStyleBackColor = true;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Minesweeper.Properties.Resources.images;
@@ -1288,35 +1278,21 @@
             this.ResetButton.UseVisualStyleBackColor = true;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
-            // label2
+            // timer1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(652, 280);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 16);
-            this.label2.TabIndex = 105;
-            this.label2.Text = "How many mines?";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(655, 300);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 106;
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button101);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.b100);
+            this.Controls.Add(this.b00);
             this.Controls.Add(this.b99);
             this.Controls.Add(this.b98);
             this.Controls.Add(this.b97);
@@ -1407,15 +1383,15 @@
             this.Controls.Add(this.b12);
             this.Controls.Add(this.b11);
             this.Controls.Add(this.b10);
-            this.Controls.Add(this.b9);
-            this.Controls.Add(this.b8);
-            this.Controls.Add(this.b7);
-            this.Controls.Add(this.b6);
-            this.Controls.Add(this.b5);
-            this.Controls.Add(this.b4);
-            this.Controls.Add(this.b3);
-            this.Controls.Add(this.b2);
-            this.Controls.Add(this.b1);
+            this.Controls.Add(this.b09);
+            this.Controls.Add(this.b08);
+            this.Controls.Add(this.b07);
+            this.Controls.Add(this.b06);
+            this.Controls.Add(this.b05);
+            this.Controls.Add(this.b04);
+            this.Controls.Add(this.b03);
+            this.Controls.Add(this.b02);
+            this.Controls.Add(this.b01);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1427,16 +1403,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button b1;
-        private System.Windows.Forms.Button b2;
-        private System.Windows.Forms.Button b3;
-        private System.Windows.Forms.Button b4;
-        private System.Windows.Forms.Button b5;
+        private System.Windows.Forms.Button b01;
+        private System.Windows.Forms.Button b02;
+        private System.Windows.Forms.Button b03;
+        private System.Windows.Forms.Button b04;
+        private System.Windows.Forms.Button b05;
         private System.Windows.Forms.Button b10;
-        private System.Windows.Forms.Button b9;
-        private System.Windows.Forms.Button b8;
-        private System.Windows.Forms.Button b7;
-        private System.Windows.Forms.Button b6;
+        private System.Windows.Forms.Button b09;
+        private System.Windows.Forms.Button b08;
+        private System.Windows.Forms.Button b07;
+        private System.Windows.Forms.Button b06;
         private System.Windows.Forms.Button b20;
         private System.Windows.Forms.Button b19;
         private System.Windows.Forms.Button b18;
@@ -1517,7 +1493,7 @@
         private System.Windows.Forms.Button b83;
         private System.Windows.Forms.Button b82;
         private System.Windows.Forms.Button b81;
-        private System.Windows.Forms.Button b100;
+        private System.Windows.Forms.Button b00;
         private System.Windows.Forms.Button b99;
         private System.Windows.Forms.Button b98;
         private System.Windows.Forms.Button b97;
@@ -1528,12 +1504,10 @@
         private System.Windows.Forms.Button b92;
         private System.Windows.Forms.Button b91;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button101;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button ResetButton;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
