@@ -127,6 +127,7 @@ namespace Minesweeper
             }
             b.Text = tracker.ToString();
         }
+        int time;
         private void ResetButton_Click(object sender, EventArgs e)
         {
             for (int x = 0; x < 10; x++)
@@ -155,6 +156,7 @@ namespace Minesweeper
                 }
                 tileGrid[xRand, yRand].setMine(true);
             }
+            time = 0;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -176,7 +178,6 @@ namespace Minesweeper
                 label1.Text = "YOU WIN!!";
             }
         }
-        int time;
         private void timer2_Tick(object sender, EventArgs e)
         {
             time++;
