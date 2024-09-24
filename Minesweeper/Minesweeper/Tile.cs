@@ -38,9 +38,28 @@ namespace Minesweeper
                 m_b.BackColor = System.Drawing.Color.White;
             }
         }
+        public void setFlag()
+        {
+            if (m_b.BackgroundImage == flagImage)
+            {
+                m_b.BackgroundImage = null;
+            } 
+            else
+            {
+                m_b.BackgroundImage = flagImage;
+            }
+            flag = !flag;
+        }
         public void setFlag(Boolean b)
         {
-            m_b.BackgroundImage = flagImage;
+            if (!b)
+            {
+                m_b.BackgroundImage = null;
+            }
+            else
+            {
+                m_b.BackgroundImage = flagImage;
+            }
             flag = b;
         }
         public void button_MouseDown(object sender)

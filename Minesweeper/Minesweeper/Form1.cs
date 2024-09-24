@@ -9,6 +9,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Minesweeper
 { 
@@ -17,6 +18,7 @@ namespace Minesweeper
         Random random = new Random();
         Button[,] btn = new Button[10,10];
         Tile[,] tileGrid = new Tile[10,10];
+        int mineAmount = 15;
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +33,25 @@ namespace Minesweeper
                 }
             }
             // mine generator
-            for (int b = 0; b <= 20; b++)
+            int minesNotInForm = mineAmount;
+            while (minesNotInForm > 0)
+            {
+                Random rand = new Random();
+                for (int x = 0; x < 10; x++)
+                {
+                    for (int y = 0;y < 10; y++)
+                    {
+                        int isMineHere = rand.Next(0, 7);
+                        if (isMineHere == 2 && minesNotInForm > 0)
+                        {
+                            tileGrid[x, y].setMine(true);
+                            minesNotInForm--;
+                        }
+                    }
+                }
+            }
+            /**
+            for (int b = 0; b <= 15; b++)
             {
                 int xRand = random.Next(0, 10);
                 int yRand = random.Next(0, 10);
@@ -41,7 +61,7 @@ namespace Minesweeper
                     yRand = random.Next(0, 10);
                 }
                 tileGrid[xRand, yRand].setMine(true);
-            }
+            **/
         }
         private Button getButton(int r, int c)
         {
@@ -65,10 +85,7 @@ namespace Minesweeper
             Tile t = tileGrid[indexX, indexY];
             if (e.Button == MouseButtons.Right)
             {
-                if(t.isFlag() == false)
-                {
-                    t.setFlag(true);
-                }
+                t.setFlag();
             }
             if(e.Button == MouseButtons.Left)
             {
@@ -96,7 +113,6 @@ namespace Minesweeper
                         t.setDug(true);
                         checkMine(b);
                     }
-
                 }
             }
         }
@@ -125,7 +141,31 @@ namespace Minesweeper
                     }
                 }
             }
-            b.Text = tracker.ToString();
+            if (tracker == 0)
+            {
+                bob(indexX, indexY);
+            } else
+            {
+                b.Text = tracker.ToString();
+            }
+        }
+        private async Task bob(int x, int y)
+        {
+            Task.Delay(50);
+            for(int a = -1; a <= 1; a++)
+            {
+                for(int b = -1; b <= 1; b++)
+                {
+                    if((x+a < 10 && x+a >= 0) && (y+b < 10 && y+b >= 0))
+                    {
+                        if (!tileGrid[x+a, y+b].dug)
+                        {
+                            tileGrid[x+a, y+b].setDug(true);
+                            checkMine(btn[x + a, y + b]);
+                        }
+                    }
+                }
+            }
         }
         int time;
         private void ResetButton_Click(object sender, EventArgs e)
@@ -145,16 +185,22 @@ namespace Minesweeper
                     this.BackColor = Color.White;
                 }
             }
-            for (int b = 0; b <= 20; b++)
+            int minesNotInForm = mineAmount;
+            while (minesNotInForm > 0)
             {
-                int xRand = random.Next(0, 10);
-                int yRand = random.Next(0, 10);
-                while (tileGrid[xRand, yRand].isMine())
+                Random rand = new Random();
+                for (int x = 0; x < 10; x++)
                 {
-                    xRand = random.Next(0, 10);
-                    yRand = random.Next(0, 10);
+                    for (int y = 0; y < 10; y++)
+                    {
+                        int isMineHere = rand.Next(0, 7);
+                        if (isMineHere == 2 && minesNotInForm > 0)
+                        {
+                            tileGrid[x, y].setMine(true);
+                            minesNotInForm--;
+                        }
+                    }
                 }
-                tileGrid[xRand, yRand].setMine(true);
             }
             time = 0;
         }
@@ -172,7 +218,7 @@ namespace Minesweeper
                     }
                 }
             }
-            if(checker == (100 - 20))
+            if(checker == (100 - 15))
             {
                 this.BackColor = Color.Green;
                 label1.Text = "YOU WIN!!";
