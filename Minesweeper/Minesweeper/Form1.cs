@@ -31,7 +31,7 @@ namespace Minesweeper
                 }
             }
             // mine generator
-            for (int b = 0; b <= 15; b++)
+            for (int b = 0; b <= 20; b++)
             {
                 int xRand = random.Next(0, 10);
                 int yRand = random.Next(0, 10);
@@ -115,7 +115,6 @@ namespace Minesweeper
                 {
                     if ((x + indexX < 10 && x + indexX >= 0) && (y + indexY < 10 && y + indexY >= 0))
                     {
-                        //shouldnt have stuff out of the array but it does :'(
                         if (tileGrid[x + indexX, y + indexY].isMine())
                         {
                             if (!tileGrid[x + indexX, y + indexY].dug)
@@ -145,6 +144,17 @@ namespace Minesweeper
                     this.BackColor = Color.White;
                 }
             }
+            for (int b = 0; b <= 20; b++)
+            {
+                int xRand = random.Next(0, 10);
+                int yRand = random.Next(0, 10);
+                while (tileGrid[xRand, yRand].isMine())
+                {
+                    xRand = random.Next(0, 10);
+                    yRand = random.Next(0, 10);
+                }
+                tileGrid[xRand, yRand].setMine(true);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -160,11 +170,17 @@ namespace Minesweeper
                     }
                 }
             }
-            if(checker == (100 - 15))
+            if(checker == (100 - 20))
             {
                 this.BackColor = Color.Green;
                 label1.Text = "YOU WIN!!";
             }
+        }
+        int time;
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            time++;
+            label3.Text = time.ToString();
         }
     }
 }
