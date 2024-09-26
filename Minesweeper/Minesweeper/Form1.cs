@@ -36,6 +36,7 @@ namespace Minesweeper
             int minesNotInForm = mineAmount;
             while (minesNotInForm > 0)
             {
+                
                 Random rand = new Random();
                 for (int x = 0; x < 10; x++)
                 {
@@ -44,11 +45,16 @@ namespace Minesweeper
                         int isMineHere = rand.Next(0, 7);
                         if (isMineHere == 2 && minesNotInForm > 0)
                         {
-                            tileGrid[x, y].setMine(true);
-                            minesNotInForm--;
+                            if (!tileGrid[x, y].isMine())
+                            {
+                                tileGrid[x, y].setMine(true);
+                                minesNotInForm--;
+                            }
+                            
                         }
                     }
                 }
+                
             }
             /**
             for (int b = 0; b <= 15; b++)
@@ -196,13 +202,17 @@ namespace Minesweeper
                         int isMineHere = rand.Next(0, 7);
                         if (isMineHere == 2 && minesNotInForm > 0)
                         {
-                            tileGrid[x, y].setMine(true);
-                            minesNotInForm--;
+                            if (!tileGrid[x, y].isMine())
+                            {
+                                tileGrid[x, y].setMine(true);
+                                minesNotInForm--;
+                            }   
                         }
                     }
                 }
             }
             time = 0;
+            timer1.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
