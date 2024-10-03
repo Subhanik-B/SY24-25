@@ -12,16 +12,36 @@ namespace bananers
 {
     public partial class Form1 : Form
     {
+        int money;
+        int fish;
         public Form1()
         {
             InitializeComponent();
         }
         Random fishy = new Random();
-        int fish;
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            fish = fishy.Next();
-            textBox1.Text = fish.ToString();
+            int fishvalue = fishy.Next(1, 16);
+            fish = fishy.Next(1, 101);
+            if (fish <= 10)
+            {
+                Fish1(fish);
+            }
+            else
+            {
+                textBox1.Text = fish.ToString();
+                money += fishvalue;
+                label1.Text = money.ToString();
+            }
+            
+        }
+
+        public void Fish1(int fisher)
+        {
+            textBox1.Text = fisher.ToString();
+            money -= 10;
+            label1.Text = money.ToString();
         }
     }
 }
