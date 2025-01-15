@@ -21,6 +21,7 @@ namespace New_Years
         int[] total = new int[8];
         int[] totalB = new int[8];
         int[] totalC = new int[8];
+
         bool bit1 = false;
         bool bit2 = false;
         bool bit3 = false;
@@ -230,96 +231,45 @@ namespace New_Years
             textBox2.Text = b.ToString();
         }
 
-        private void Bit_8C_TextChanged(object sender, EventArgs e)
+        private void Bit_8C_MouseDown(object sender, MouseEventArgs e)
         {
-            if (Bit_1C.Text.Equals("1") && !bit1C)
+            if (((TextBox)sender).Text == "1")
             {
-                totalC[0] = 1;
-                bit1C = true;
+                ((TextBox)sender).Text = "0";
             }
-            if (Bit_2C.Text.Equals("1") && !bit2C)
+            else
             {
-                totalC[1] = 2;
-                bit2C = true;
+                ((TextBox)sender).Text = "1";
             }
-            if (Bit_3C.Text.Equals("1") && !bit3C)
-            {
-                totalC[2] = 4;
-                bit3C = true;
-            }
-            if (Bit_4C.Text.Equals("1") && !bit4C)
-            {
-                totalC[3] = 8;
-                bit4C = true;
-            }
-            if (Bit_5C.Text.Equals("1") && !bit5C)
-            {
-                totalC[4] = 16;
-                bit5C = true;
-            }
-            if (Bit_6C.Text.Equals("1") && !bit6C)
-            {
-                totalC[5] = 32;
-                bit6C = true;
-            }
-            if (Bit_7C.Text.Equals("1") && !bit7C)
-            {
-                totalC[6] = 64;
-                bit7C = true;
-            }
-            if (Bit_8C.Text.Equals("1") && !bit8C)
-            {
-                totalC[7] = 128;
-                bit8C = true;
-            }
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < total.Length; i++)
+            {
+                total[i] = 0;
+                Update();
+            }
+        }
 
-            if (Bit_1C.Text.Equals("0") && bit1C)
-            {
-                totalC[0] = 0;
-                bit1C = false;
-            }
-            if (Bit_2C.Text.Equals("0") && bit2C)
-            {
-                totalC[1] = 0;
-                bit2C = false;
-            }
-            if (Bit_3C.Text.Equals("0") && bit3C)
-            {
-                totalC[2] = 0;
-                bit3C = false;
-            }
-            if (Bit_4C.Text.Equals("0") && bit4C)
-            {
-                totalC[3] = 0;
-                bit4C = false;
-            }
-            if (Bit_5C.Text.Equals("0") && bit5C)
-            {
-                totalC[4] = 0;
-                bit5C = false;
-            }
-            if (Bit_6C.Text.Equals("0") && bit6C)
-            {
-                totalC[5] = 0;
-                bit6C = false;
-            }
-            if (Bit_7C.Text.Equals("0") && bit7C)
-            {
-                totalC[6] = 0;
-                bit7C = false;
-            }
-            if (Bit_8C.Text.Equals("0") && bit8C)
-            {
-                totalC[7] = 0;
-                bit8C = false;
-            }
-            int b = 0;
-            for (int i = 0; i < totalC.Length; i++)
-            {
-                b += totalC[i];
-            }
-            textBox3.Text = b.ToString();
+        private void Update()
+        {
+            Bit_1.Text = "0";
+            Bit_2.Text = "0";
+            Bit_3.Text = "0";
+            Bit_4.Text = "0";
+            Bit_5.Text = "0";
+            Bit_6.Text = "0";
+            Bit_7.Text = "0";
+            Bit_8.Text = "0";
+            Bit_1B.Text = "0";
+            Bit_2B.Text = "0";
+            Bit_3B.Text = "0";
+            Bit_4B.Text = "0";
+            Bit_5B.Text = "0";
+            Bit_6B.Text = "0";
+            Bit_7B.Text = "0";
+            Bit_8B.Text = "0";
         }
     }
 }
