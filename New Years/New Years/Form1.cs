@@ -270,6 +270,14 @@ namespace New_Years
             Bit_6B.Text = "0";
             Bit_7B.Text = "0";
             Bit_8B.Text = "0";
+            Bit_1C.Text = "0";
+            Bit_2C.Text = "0";
+            Bit_3C.Text = "0";
+            Bit_4C.Text = "0";
+            Bit_5C.Text = "0";
+            Bit_6C.Text = "0";
+            Bit_7C.Text = "0";
+            Bit_8C.Text = "0";
         }
     }
 }
