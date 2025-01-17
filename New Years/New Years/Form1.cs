@@ -248,8 +248,8 @@ namespace New_Years
             for (int i = 0; i < total.Length; i++)
             {
                 total[i] = 0;
-                Update();
             }
+            Update();
         }
 
         private void Update()
@@ -278,6 +278,38 @@ namespace New_Years
             Bit_6C.Text = "0";
             Bit_7C.Text = "0";
             Bit_8C.Text = "0";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < total.Length; i++)
+            {
+                total[i] = 0;
+            }
+            Bit_1.Text = "0";
+            Bit_2.Text = "0";
+            Bit_3.Text = "0";
+            Bit_4.Text = "0";
+            Bit_5.Text = "0";
+            Bit_6.Text = "0";
+            Bit_7.Text = "0";
+            Bit_8.Text = "0";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < totalB.Length; i++)
+            {
+                total[i] = 0;
+            }
+            Bit_1B.Text = "0";
+            Bit_2B.Text = "0";
+            Bit_3B.Text = "0";
+            Bit_4B.Text = "0";
+            Bit_5B.Text = "0";
+            Bit_6B.Text = "0";
+            Bit_7B.Text = "0";
+            Bit_8B.Text = "0";
         }
     }
 }

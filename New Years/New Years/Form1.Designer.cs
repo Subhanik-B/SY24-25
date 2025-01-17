@@ -55,6 +55,9 @@
             this.Bit_2C = new System.Windows.Forms.TextBox();
             this.Bit_1C = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ClearAll = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -276,6 +279,7 @@
             this.Bit_8C.ReadOnly = true;
             this.Bit_8C.Size = new System.Drawing.Size(26, 22);
             this.Bit_8C.TabIndex = 25;
+            this.Bit_8C.Text = "0";
             // 
             // Bit_7C
             // 
@@ -285,6 +289,7 @@
             this.Bit_7C.ReadOnly = true;
             this.Bit_7C.Size = new System.Drawing.Size(26, 22);
             this.Bit_7C.TabIndex = 24;
+            this.Bit_7C.Text = "0";
             // 
             // Bit_6C
             // 
@@ -294,6 +299,7 @@
             this.Bit_6C.ReadOnly = true;
             this.Bit_6C.Size = new System.Drawing.Size(26, 22);
             this.Bit_6C.TabIndex = 23;
+            this.Bit_6C.Text = "0";
             // 
             // Bit_5C
             // 
@@ -303,6 +309,7 @@
             this.Bit_5C.ReadOnly = true;
             this.Bit_5C.Size = new System.Drawing.Size(26, 22);
             this.Bit_5C.TabIndex = 22;
+            this.Bit_5C.Text = "0";
             // 
             // Bit_4C
             // 
@@ -312,6 +319,7 @@
             this.Bit_4C.ReadOnly = true;
             this.Bit_4C.Size = new System.Drawing.Size(26, 22);
             this.Bit_4C.TabIndex = 21;
+            this.Bit_4C.Text = "0";
             // 
             // Bit_3C
             // 
@@ -321,6 +329,7 @@
             this.Bit_3C.ReadOnly = true;
             this.Bit_3C.Size = new System.Drawing.Size(26, 22);
             this.Bit_3C.TabIndex = 20;
+            this.Bit_3C.Text = "0";
             // 
             // Bit_2C
             // 
@@ -330,6 +339,7 @@
             this.Bit_2C.ReadOnly = true;
             this.Bit_2C.Size = new System.Drawing.Size(26, 22);
             this.Bit_2C.TabIndex = 19;
+            this.Bit_2C.Text = "0";
             // 
             // Bit_1C
             // 
@@ -339,6 +349,7 @@
             this.Bit_1C.ReadOnly = true;
             this.Bit_1C.Size = new System.Drawing.Size(26, 22);
             this.Bit_1C.TabIndex = 18;
+            this.Bit_1C.Text = "0";
             // 
             // textBox3
             // 
@@ -348,15 +359,44 @@
             this.textBox3.Size = new System.Drawing.Size(154, 22);
             this.textBox3.TabIndex = 26;
             // 
+            // ClearAll
+            // 
+            this.ClearAll.Location = new System.Drawing.Point(348, 268);
+            this.ClearAll.Name = "ClearAll";
+            this.ClearAll.Size = new System.Drawing.Size(75, 23);
+            this.ClearAll.TabIndex = 27;
+            this.ClearAll.Text = "Clear All";
+            this.ClearAll.UseVisualStyleBackColor = true;
+            this.ClearAll.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(526, 182);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(526, 212);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 29;
+            this.button3.Text = "Clear";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(557, 183);
+            this.button1.Location = new System.Drawing.Point(269, 311);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 27;
+            this.button1.TabIndex = 30;
             this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -364,6 +404,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ClearAll);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.Bit_8C);
             this.Controls.Add(this.Bit_7C);
@@ -427,6 +470,9 @@
         private System.Windows.Forms.TextBox Bit_2C;
         private System.Windows.Forms.TextBox Bit_1C;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button ClearAll;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
     }
 }
