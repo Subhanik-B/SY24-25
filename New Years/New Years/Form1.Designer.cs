@@ -59,6 +59,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.Left_Shift = new System.Windows.Forms.Button();
+            this.Right_Shift = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Bit_1
@@ -398,11 +399,21 @@
             this.Left_Shift.Text = "Shift Left";
             this.Left_Shift.UseVisualStyleBackColor = true;
             // 
+            // Right_Shift
+            // 
+            this.Right_Shift.Location = new System.Drawing.Point(429, 311);
+            this.Right_Shift.Name = "Right_Shift";
+            this.Right_Shift.Size = new System.Drawing.Size(75, 23);
+            this.Right_Shift.TabIndex = 31;
+            this.Right_Shift.Text = "Shift Right";
+            this.Right_Shift.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Right_Shift);
             this.Controls.Add(this.Left_Shift);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -474,6 +485,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button Left_Shift;
+        private System.Windows.Forms.Button Right_Shift;
     }
 }
 
