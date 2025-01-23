@@ -60,6 +60,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.Left_Shift = new System.Windows.Forms.Button();
             this.Right_Shift = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Bit_1
@@ -398,6 +399,7 @@
             this.Left_Shift.TabIndex = 30;
             this.Left_Shift.Text = "Shift Left";
             this.Left_Shift.UseVisualStyleBackColor = true;
+            this.Left_Shift.Click += new System.EventHandler(this.Left_Shift_Click);
             // 
             // Right_Shift
             // 
@@ -407,12 +409,24 @@
             this.Right_Shift.TabIndex = 31;
             this.Right_Shift.Text = "Shift Right";
             this.Right_Shift.UseVisualStyleBackColor = true;
+            this.Right_Shift.Click += new System.EventHandler(this.Right_Shift_Click);
+            // 
+            // Add
+            // 
+            this.Add.Location = new System.Drawing.Point(171, 184);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(75, 23);
+            this.Add.TabIndex = 32;
+            this.Add.Text = "Add?";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Add);
             this.Controls.Add(this.Right_Shift);
             this.Controls.Add(this.Left_Shift);
             this.Controls.Add(this.button3);
@@ -486,6 +500,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button Left_Shift;
         private System.Windows.Forms.Button Right_Shift;
+        private System.Windows.Forms.Button Add;
     }
 }
 
