@@ -19,6 +19,7 @@ namespace New_Years
 
         int Actualtotal = 0;
         int ActualtotalB = 0;
+        int ActualtotalC = 0;
 
         int[] total = new int[8];
         int[] totalB = new int[8];
@@ -95,7 +96,7 @@ namespace New_Years
                 total[7] = 0;
             }
 
-            Updatept2();
+            Updatept2(false);
         }
 
         private void Bit_8B_TextChanged(object sender, EventArgs e)
@@ -168,7 +169,7 @@ namespace New_Years
                 totalB[7] = 0;
             }
 
-            Updatept2();
+            Updatept2(false);
         }
 
         private void Bit_8C_MouseDown(object sender, MouseEventArgs e)
@@ -239,24 +240,6 @@ namespace New_Years
             Bit_8C.Text = totalC[7].ToString();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < total.Length; i++)
-            {
-                total[i] = 0;
-            }
-            OtherUpdate();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < totalB.Length; i++)
-            {
-                totalB[i] = 0;
-            }
-            OtherUpdate();
-        }
-
         private void Left_Shift_Click(object sender, EventArgs e)
         {
 
@@ -271,10 +254,16 @@ namespace New_Years
             
         }
 
-        private void Updatept2()
+        private void Updatept2(Boolean Cadd)
         {
             Actualtotal = 0;
             ActualtotalB = 0;
+            ActualtotalC = 0;
+
+            if (Cadd)
+            {
+                ActualtotalC += 256;
+            }
 
             for (int i = 0; i < total.Length; i++)
             {
@@ -293,6 +282,15 @@ namespace New_Years
                 }
             }
             textBox2.Text = ActualtotalB.ToString();
+
+            for (int i = 0; i < totalC.Length; i++)
+            {
+                if (totalC[i] != 0)
+                {
+                    ActualtotalC += (int)Math.Pow(2, i);
+                }
+            }
+            textBox3.Text = ActualtotalC.ToString();
         }
 
         private void Right_Shift_Click(object sender, EventArgs e)
@@ -309,7 +307,148 @@ namespace New_Years
 
         private void Add_Click(object sender, EventArgs e)
         {
+            for(int i = 0; i < total.Length; i++)
+            {
+                if (total[i] != 0 && totalB[i] != 0)
+                {
+                    try
+                    {
+                        totalC[i + 1] = 1;
+                    }
+                    catch(Exception ArrayIndexOutOfBounds)
+                    {
+                        Updatept2(true);
+                    }
+                } else if (total[i] != 0 || totalB[i] != 0)
+                {
+                    totalC[i] = 1;
+                } else if (totalC[i] != 1)
+                {
+                    totalC[i] = 0;
+                }
+                OtherUpdate();
+            }
+        }
 
+        private void Bit_8C_TextChanged(object sender, EventArgs e)
+        {
+            if (Bit_1C.Text.Equals("1"))
+            {
+                totalC[0] = 1;
+            }
+            if (Bit_2C.Text.Equals("1"))
+            {
+                totalC[1] = 1;
+            }
+            if (Bit_3C.Text.Equals("1"))
+            {
+                totalC[2] = 1;
+
+            }
+            if (Bit_4C.Text.Equals("1"))
+            {
+                totalC[3] = 1;
+            }
+            if (Bit_5C.Text.Equals("1"))
+            {
+                totalC[4] = 1;
+            }
+            if (Bit_6C.Text.Equals("1"))
+            {
+                totalC[5] = 1;
+            }
+            if (Bit_7C.Text.Equals("1"))
+            {
+                totalC[6] = 1;
+            }
+            if (Bit_8C.Text.Equals("1"))
+            {
+                totalC[7] = 1;
+            }
+
+
+            if (Bit_1C.Text.Equals("0"))
+            {
+                totalC[0] = 0;
+            }
+            if (Bit_2C.Text.Equals("0"))
+            {
+                totalC[1] = 0;
+            }
+            if (Bit_3C.Text.Equals("0"))
+            {
+                totalC[2] = 0;
+            }
+            if (Bit_4C.Text.Equals("0"))
+            {
+                totalC[3] = 0;
+            }
+            if (Bit_5C.Text.Equals("0"))
+            {
+                totalC[4] = 0;
+            }
+            if (Bit_6C.Text.Equals("0"))
+            {
+                totalC[5] = 0;
+            }
+            if (Bit_7C.Text.Equals("0"))
+            {
+                totalC[6] = 0;
+            }
+            if (Bit_8C.Text.Equals("0"))
+            {
+                totalC[7] = 0;
+            }
+
+            Updatept2(false);
+        }
+
+        private void And_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < total.Length; i++)
+            {
+                if (total[i] != 0 && totalB[i] != 0)
+                {
+                    totalC[i] = 1;
+                }
+                else
+                {
+                    totalC[i] = 0;
+                }
+                OtherUpdate();
+            }
+        }
+
+        private void Or_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < total.Length; i++)
+            {
+                if (total[i] != 0 || totalB[i] != 0)
+                {
+                    totalC[i] = 1;
+                }
+                else
+                {
+                    totalC[i] = 0;
+                }
+                OtherUpdate();
+            }
+        }
+
+        private void XOr_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < total.Length; i++)
+            {
+                if (total[i] != totalB[i])
+                {
+                    totalC[i] = 1;
+                }
+                else
+                {
+                    totalC[i] = 0;
+                }
+                OtherUpdate();
+            }
         }
     }
 }
