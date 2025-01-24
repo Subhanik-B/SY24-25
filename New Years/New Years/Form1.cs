@@ -293,6 +293,15 @@ namespace New_Years
             textBox3.Text = ActualtotalC.ToString();
         }
 
+        private void Clear3rdLine()
+        {
+            for (int i = 0; i < totalC.Length; i++)
+            {
+                totalC[i] = 0;
+                OtherUpdate();
+            }
+        }
+
         private void Right_Shift_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < total.Length; i++)
@@ -307,6 +316,8 @@ namespace New_Years
 
         private void Add_Click(object sender, EventArgs e)
         {
+            Clear3rdLine();
+            
             for(int i = 0; i < total.Length; i++)
             {
                 if (total[i] != 0 && totalB[i] != 0)
@@ -405,6 +416,7 @@ namespace New_Years
 
         private void And_Click(object sender, EventArgs e)
         {
+            Clear3rdLine();
             for (int i = 0; i < total.Length; i++)
             {
                 if (total[i] != 0 && totalB[i] != 0)
@@ -421,6 +433,8 @@ namespace New_Years
 
         private void Or_Click(object sender, EventArgs e)
         {
+            Clear3rdLine();
+
             for (int i = 0; i < total.Length; i++)
             {
                 if (total[i] != 0 || totalB[i] != 0)
@@ -437,6 +451,8 @@ namespace New_Years
 
         private void XOr_Click(object sender, EventArgs e)
         {
+            Clear3rdLine();
+
             for (int i = 0; i < total.Length; i++)
             {
                 if (total[i] != totalB[i])
