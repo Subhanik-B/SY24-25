@@ -186,10 +186,10 @@ namespace New_Years
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Update();
+            FirstUpdate();
         }
 
-        private void Update()
+        private void FirstUpdate()
         {
             for (int i = 0; i < total.Length; i++)
             {
