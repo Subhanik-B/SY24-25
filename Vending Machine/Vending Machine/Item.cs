@@ -25,16 +25,5 @@ namespace Vending_Machine
         {
             pictureBox1.Image = image;
         }
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-            Item item = new Item();
-            item.price = price;
-            item.name = name;
-            Form1 b = new Form1();
-            b.showPrice(item, e as MouseEventArgs);
-        }
-
-
     }
 }

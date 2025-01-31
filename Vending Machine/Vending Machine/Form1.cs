@@ -12,6 +12,7 @@ namespace Vending_Machine
 {
     public partial class Form1 : Form
     {
+        double deposit = 0;
         public Form1()
         {
             InitializeComponent();
@@ -20,8 +21,39 @@ namespace Vending_Machine
         public void showPrice(object sender, MouseEventArgs e)
         {
             Item i = sender as Item;
-            label3.Text = i.Name;
-            label4.Text = i.price.ToString();
+            showProduct(i.name, i.price);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            deposit += 0.05;
+            showDeposit();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            deposit += 0.1;
+            showDeposit();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            deposit += 0.25;
+            showDeposit();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            deposit += 1;
+            showDeposit();
+        }
+
+        private void showDeposit()
+        {
+            label6.Text = deposit.ToString();
+        }
+
+        private void showProduct(String Name, Double Price)
+        {
+            label3.Text = Name;
+            label4.Text = Price.ToString();
         }
     }
 }
