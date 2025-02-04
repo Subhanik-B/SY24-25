@@ -12,7 +12,8 @@ namespace Vending_Machine
 {
     public partial class Form1 : Form
     {
-        double deposit = 0;
+        CoinSlot coinSlot = new CoinSlot();
+
         public Form1()
         {
             InitializeComponent();
@@ -26,34 +27,40 @@ namespace Vending_Machine
 
         private void button1_Click(object sender, EventArgs e)
         {
-            deposit += 0.05;
+            coinSlot.insertCoin(0.05);
             showDeposit();
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            deposit += 0.1;
+            coinSlot.insertCoin(0.1);
             showDeposit();
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            deposit += 0.25;
+            coinSlot.insertCoin(0.25);
             showDeposit();
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            deposit += 1;
+            coinSlot.insertCoin(1);
             showDeposit();
         }
 
         private void showDeposit()
         {
-            label6.Text = deposit.ToString();
+            label6.Text = coinSlot.returnMoney().ToString();
         }
 
         private void showProduct(String Name, Double Price)
         {
             label3.Text = Name;
             label4.Text = Price.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            coinSlot.coinReturn();
+            label6.Text = coinSlot.returnMoney().ToString();
         }
     }
 }
