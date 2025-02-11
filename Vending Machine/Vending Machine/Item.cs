@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,9 +14,13 @@ namespace Vending_Machine
 {
     public partial class Item : UserControl
     {
+
         public Image image { get; set; }
         public double price { get; set; }
         public String name { get; set; }
+        public int stock {  get; set; }
+
+        Random random = new Random();
         public Item()
         {
             InitializeComponent();
@@ -24,6 +29,23 @@ namespace Vending_Machine
         private void Item_Load(object sender, EventArgs e)
         {
             pictureBox1.Image = image;
+            updateLabel();
+        }
+
+        public void addProduct(int count)
+        {
+            stock += count;
+            updateLabel();
+        }
+
+        public void buy()
+        {
+            stock -= 1;
+            updateLabel();
+        }
+        public void updateLabel()
+        {
+            label2.Text = stock.ToString();
         }
     }
 }

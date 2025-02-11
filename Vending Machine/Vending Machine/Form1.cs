@@ -13,7 +13,8 @@ namespace Vending_Machine
     public partial class Form1 : Form
     {
         CoinSlot coinSlot = new CoinSlot();
-
+        Item i = new Item();
+        Random random = new Random();
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace Vending_Machine
 
         public void showPrice(object sender, MouseEventArgs e)
         {
-            Item i = sender as Item;
+            i = sender as Item;
             showProduct(i.name, i.price);
         }
 
@@ -61,6 +62,38 @@ namespace Vending_Machine
         {
             coinSlot.coinReturn();
             label6.Text = coinSlot.returnMoney().ToString();
+        }
+
+        private void Buy_Click(object sender, EventArgs e)
+        {
+            if (i.stock > 0 && coinSlot.returnMoney() > i.price)
+            {
+                i.buy();
+                coinSlot.insertCoin(-i.price);
+                label6.Text = coinSlot.returnMoney().ToString();
+                MessageSystem.Text = "You have bought: " + i.name;
+            }
+            if (i.stock == 0)
+            {
+                MessageSystem.Text = "Sorry, but we're out of: " + i.name;
+            }
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            await LoadForm();
+        }
+
+        private async Task LoadForm()
+        {
+            Item[] items = new Item[] { item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12 };
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i].stock = random.Next(0, 100);
+                items[i].price = random.Next(1, 15) + 0.99;
+                items[i].updateLabel();
+                await Task.Delay(1);
+            }
         }
     }
 }

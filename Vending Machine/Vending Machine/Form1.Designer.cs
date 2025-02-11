@@ -42,6 +42,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.Buy = new System.Windows.Forms.Button();
+            this.MessageSystem = new System.Windows.Forms.Label();
             this.item12 = new Vending_Machine.Item();
             this.item11 = new Vending_Machine.Item();
             this.item10 = new Vending_Machine.Item();
@@ -54,7 +57,6 @@
             this.item3 = new Vending_Machine.Item();
             this.item2 = new Vending_Machine.Item();
             this.item1 = new Vending_Machine.Item();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -200,6 +202,35 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(552, 264);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(145, 28);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Empty Machine";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // Buy
+            // 
+            this.Buy.Location = new System.Drawing.Point(552, 323);
+            this.Buy.Name = "Buy";
+            this.Buy.Size = new System.Drawing.Size(75, 23);
+            this.Buy.TabIndex = 27;
+            this.Buy.Text = "Buy?";
+            this.Buy.UseVisualStyleBackColor = true;
+            this.Buy.Click += new System.EventHandler(this.Buy_Click);
+            // 
+            // MessageSystem
+            // 
+            this.MessageSystem.AutoSize = true;
+            this.MessageSystem.Location = new System.Drawing.Point(538, 353);
+            this.MessageSystem.Name = "MessageSystem";
+            this.MessageSystem.Size = new System.Drawing.Size(0, 16);
+            this.MessageSystem.TabIndex = 28;
+            // 
             // item12
             // 
             this.item12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -210,6 +241,7 @@
             this.item12.Name = "item12";
             this.item12.price = 6D;
             this.item12.Size = new System.Drawing.Size(105, 127);
+            this.item12.stock = 59;
             this.item12.TabIndex = 11;
             this.item12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -223,6 +255,7 @@
             this.item11.Name = "item11";
             this.item11.price = 7.99D;
             this.item11.Size = new System.Drawing.Size(105, 127);
+            this.item11.stock = 95;
             this.item11.TabIndex = 10;
             this.item11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -236,6 +269,7 @@
             this.item10.Name = "item10";
             this.item10.price = 10.99D;
             this.item10.Size = new System.Drawing.Size(105, 127);
+            this.item10.stock = 95;
             this.item10.TabIndex = 9;
             this.item10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -249,6 +283,7 @@
             this.item9.Name = "item9";
             this.item9.price = 4D;
             this.item9.Size = new System.Drawing.Size(105, 127);
+            this.item9.stock = 79;
             this.item9.TabIndex = 8;
             this.item9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -262,6 +297,7 @@
             this.item8.Name = "item8";
             this.item8.price = 4.99D;
             this.item8.Size = new System.Drawing.Size(105, 127);
+            this.item8.stock = 79;
             this.item8.TabIndex = 7;
             this.item8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -275,6 +311,7 @@
             this.item7.Name = "item7";
             this.item7.price = 3.99D;
             this.item7.Size = new System.Drawing.Size(105, 127);
+            this.item7.stock = 79;
             this.item7.TabIndex = 6;
             this.item7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -288,6 +325,7 @@
             this.item6.Name = "item6";
             this.item6.price = 5.5D;
             this.item6.Size = new System.Drawing.Size(105, 127);
+            this.item6.stock = 79;
             this.item6.TabIndex = 5;
             this.item6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -301,6 +339,7 @@
             this.item5.Name = "item5";
             this.item5.price = 2.99D;
             this.item5.Size = new System.Drawing.Size(105, 127);
+            this.item5.stock = 79;
             this.item5.TabIndex = 4;
             this.item5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -314,6 +353,7 @@
             this.item4.Name = "item4";
             this.item4.price = 12.99D;
             this.item4.Size = new System.Drawing.Size(105, 127);
+            this.item4.stock = 14;
             this.item4.TabIndex = 3;
             this.item4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -327,6 +367,7 @@
             this.item3.Name = "item3";
             this.item3.price = 6.99D;
             this.item3.Size = new System.Drawing.Size(105, 127);
+            this.item3.stock = 14;
             this.item3.TabIndex = 2;
             this.item3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -340,6 +381,7 @@
             this.item2.Name = "item2";
             this.item2.price = 7.99D;
             this.item2.Size = new System.Drawing.Size(105, 127);
+            this.item2.stock = 14;
             this.item2.TabIndex = 1;
             this.item2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
             // 
@@ -353,25 +395,17 @@
             this.item1.Name = "item1";
             this.item1.price = 5.99D;
             this.item1.Size = new System.Drawing.Size(105, 127);
+            this.item1.stock = 14;
             this.item1.TabIndex = 0;
             this.item1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPrice);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(552, 264);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(145, 28);
-            this.button5.TabIndex = 26;
-            this.button5.Text = "Empty Machine";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MessageSystem);
+            this.Controls.Add(this.Buy);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -402,6 +436,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -440,6 +475,8 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Buy;
+        private System.Windows.Forms.Label MessageSystem;
     }
 }
 
