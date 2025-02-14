@@ -8,6 +8,7 @@ namespace Morebeans
 {
     internal class Class1
     {
+        public String name {  get; set; }
         public int maxSpeed { get; set; }
         public double toHundred { get; set; }
         public int cylinders { get; set; }
