@@ -10,27 +10,16 @@ namespace Morebeans
 {
     internal class Program
     {
-        Class1 car1 = car("Banana Car",550,2.2,6,350,1000,5);
-        Class1 car2 = car("Apple Car", 550, 2.2, 6, 350, 1000, 5);
-        Class1 car3 = car("Orange Car", 550, 2.2, 6, 350, 1000, 5);
-        Class1 car4 = car("Grape Car", 550, 2.2, 6, 350, 1000, 5);
-        Class1 car5 = car("Cherry Car", 250, 3.5, 4, 350, 368, 8);
+        
         static void Main(string[] args)
         {
-            
+            Class1 car1 = new Class1("Banana Car", 550, 2.2, 6, 350, 1000, 5);
+            Class1 car2 = new Class1("Apple Car", 550, 2.2, 6, 350, 1000, 5);
+            Class1 car3 = new Class1("Orange Car", 550, 2.2, 6, 350, 1000, 5);
+            Class1 car4 = new Class1("Grape Car", 550, 2.2, 6, 350, 1000, 5);
+            Class1 car5 = new Class1("Cherry Car", 250, 3.5, 4, 350, 368, 8);
         }
 
-        static Class1 car(String name, int speed, double toH, int cylinders, int rpm, int horsepower, int cylinderSize)
-        {
-            Class1 b = new Class1();
-            b.name = name;
-            b.rpm = rpm;
-            b.maxSpeed = speed;
-            b.sizeOfCylinders = cylinderSize;
-            b.cylinders = cylinders;
-            b.toHundred = toH;
-            return b;
-        }
         public override string ToString()
         {
             return "";

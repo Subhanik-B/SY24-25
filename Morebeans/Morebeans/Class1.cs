@@ -15,5 +15,16 @@ namespace Morebeans
         public int rpm { get; set; }
         public int horsepower { get; set; }
         public int sizeOfCylinders { get; set; }
+
+        public Class1(string name, int maxspeed, double zerotosixty, int hp, int cc, int cylinders, int rpm)
+        {
+            this.name = name;
+            this.maxSpeed = maxspeed;
+            this.toHundred = zerotosixty;
+            this.horsepower = hp;
+            this.sizeOfCylinders = cc;
+            this.cylinders = cylinders;
+            this.rpm = rpm;
+        }
     }
 }
