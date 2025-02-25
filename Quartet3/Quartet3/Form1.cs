@@ -51,78 +51,11 @@ namespace Quartet3
         CarCard H2 = new CarCard("H2", "Alfa Romeo GT", 243, 6.7, 240, 3179, 6, 6400);
         CarCard H3 = new CarCard("H3", "Pontiac GTO", 280, 5.7, 5970, 400, 8, 5200);
         CarCard H4 = new CarCard("H4", "BMW M5", 250, 4.7, 4999, 507, 10, 7750);
-        
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            beans.Add(A1);
-            beans.Add(A2);
-            beans.Add(A3);
-            beans.Add(A4);
-            beans.Add(B1);
-            beans.Add(B2);
-            beans.Add(B3);
-            beans.Add(B4);
-            beans.Add(C1);
-            beans.Add(C2);
-            beans.Add(C3);
-            beans.Add(C4);
-            beans.Add(D1);
-            beans.Add(D2);
-            beans.Add(D3);
-            beans.Add(D4);
-            beans.Add(E1);
-            beans.Add(E2);
-            beans.Add(E3);
-            beans.Add(E4);
-            beans.Add(F1);
-            beans.Add(F2);
-            beans.Add(F3);
-            beans.Add(F4);
-            beans.Add(G1);
-            beans.Add(G2);
-            beans.Add(G3);
-            beans.Add(G4);
-            beans.Add(H1);
-            beans.Add(H2);
-            beans.Add(H3);
-            beans.Add(H4);
-        }
+        Deck deck = new Deck(null);
 
         private void button1_Click(object sender, EventArgs e)
         {
-            beans.Clear();
-            beans.Add(A1);
-            beans.Add(A2);
-            beans.Add(A3);
-            beans.Add(A4);
-            beans.Add(B1);
-            beans.Add(B2);
-            beans.Add(B3);
-            beans.Add(B4);
-            beans.Add(C1);
-            beans.Add(C2);
-            beans.Add(C3);
-            beans.Add(C4);
-            beans.Add(D1);
-            beans.Add(D2);
-            beans.Add(D3);
-            beans.Add(D4);
-            beans.Add(E1);
-            beans.Add(E2);
-            beans.Add(E3);
-            beans.Add(E4);
-            beans.Add(F1);
-            beans.Add(F2);
-            beans.Add(F3);
-            beans.Add(F4);
-            beans.Add(G1);
-            beans.Add(G2);
-            beans.Add(G3);
-            beans.Add(G4);
-            beans.Add(H1);
-            beans.Add(H2);
-            beans.Add(H3);
-            beans.Add(H4);
+            
             if (pictureBox1.Image != null) {
                 int i = 0;
                 while (beans[i].id != display.id)
@@ -154,6 +87,66 @@ namespace Quartet3
             Cylinders.Text = card.cylinders.ToString();
             RPM.Text = card.rpm.ToString();
             Name.Text = card.name.ToString();
+            ID.Text = card.id.ToString();
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            beans.Add(A1);
+            beans.Add(A2);
+            beans.Add(A3);
+            beans.Add(A4);
+            beans.Add(B1);
+            beans.Add(B2);
+            beans.Add(B3);
+            beans.Add(B4);
+            beans.Add(C1);
+            beans.Add(C2);
+            beans.Add(C3);
+            beans.Add(C4);
+            beans.Add(D1);
+            beans.Add(D2);
+            beans.Add(D3);
+            beans.Add(D4);
+            beans.Add(E1);
+            beans.Add(E2);
+            beans.Add(E3);
+            beans.Add(E4);
+            beans.Add(F1);
+            beans.Add(F2);
+            beans.Add(F3);
+            beans.Add(F4);
+            beans.Add(G1);
+            beans.Add(G2);
+            beans.Add(G3);
+            beans.Add(G4);
+            beans.Add(H1);
+            beans.Add(H2);
+            beans.Add(H3);
+            beans.Add(H4);
+            deck.updateDeck(beans);
+            deck.shuffle();
+            deck.updateDeck(beans);
+        }
+        Hand p1 = new Hand(null);
+        Hand p2 = new Hand(null);
+        Hand p3 = new Hand(null);
+        Hand p4 = new Hand(null);
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<Hand> hands = new List<Hand>();
+            int i = 0;
+            int ind = 0;
+            int.TryParse(textBox1.Text, out i);
+            for (int j = 0; j < 32/i; j++)
+            {
+                for(int k = 0; k < i; k++)
+                {
+                    hands[k].addCard(beans[ind]);
+                    ind++;
+                }
+            }
         }
     }
 }

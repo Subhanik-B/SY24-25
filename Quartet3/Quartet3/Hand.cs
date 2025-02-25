@@ -11,6 +11,21 @@ namespace Quartet3
     {
         List<CarCard> carCards;
 
+        public Hand(List<CarCard> cards)
+        {
+            this.carCards = cards;
+        }
+
+        public void updateHand(List<CarCard> cards)
+        {
+            this.carCards = cards;
+        }
+
+        public void addCard(CarCard card)
+        {
+            carCards.Add(card);
+        }
+
         public CarCard getTop()
         {
             return carCards[0];

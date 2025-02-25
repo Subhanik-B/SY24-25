@@ -37,6 +37,9 @@
             this.Horsepower = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.Name = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,16 +106,44 @@
             // 
             // Name
             // 
-            this.Name.Location = new System.Drawing.Point(92, 205);
+            this.Name.Location = new System.Drawing.Point(145, 205);
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(100, 22);
             this.Name.TabIndex = 9;
+            // 
+            // ID
+            // 
+            this.ID.Location = new System.Drawing.Point(39, 205);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(100, 22);
+            this.ID.TabIndex = 10;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(423, 104);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 40);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Amount of Players";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(423, 149);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ID);
             this.Controls.Add(this.Name);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.RPM);
@@ -123,6 +154,7 @@
             this.Controls.Add(this.TopSpeedTB);
             this.Controls.Add(this.pictureBox1);
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,6 +172,9 @@
         private System.Windows.Forms.TextBox Horsepower;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox Name;
+        private System.Windows.Forms.TextBox ID;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

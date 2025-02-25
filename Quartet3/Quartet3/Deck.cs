@@ -11,6 +11,7 @@ namespace Quartet3
     internal class Deck
     {
         List<CarCard> carCards;
+        List<Hand> Hands;
         Random random = new Random();
         public Deck(List<CarCard> cards)
         {
@@ -49,6 +50,11 @@ namespace Quartet3
                 carCards[n] = carCards[n2];
                 carCards[n2] = temp;
             }
+        }
+
+        public void hands(Hand h1, Hand h2, Hand h3, Hand h4)
+        {
+
         }
     }
 }
