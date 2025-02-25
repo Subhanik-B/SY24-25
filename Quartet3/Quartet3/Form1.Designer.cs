@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TopSpeedTB = new System.Windows.Forms.TextBox();
+            this.cc = new System.Windows.Forms.TextBox();
+            this.Cylinders = new System.Windows.Forms.TextBox();
+            this.ToSixty = new System.Windows.Forms.TextBox();
+            this.RPM = new System.Windows.Forms.TextBox();
+            this.Horsepower = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.Name = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,47 +49,47 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // TopSpeedTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(39, 121);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
+            this.TopSpeedTB.Location = new System.Drawing.Point(39, 121);
+            this.TopSpeedTB.Name = "TopSpeedTB";
+            this.TopSpeedTB.Size = new System.Drawing.Size(100, 22);
+            this.TopSpeedTB.TabIndex = 1;
             // 
-            // textBox2
+            // cc
             // 
-            this.textBox2.Location = new System.Drawing.Point(145, 121);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 2;
+            this.cc.Location = new System.Drawing.Point(145, 121);
+            this.cc.Name = "cc";
+            this.cc.Size = new System.Drawing.Size(100, 22);
+            this.cc.TabIndex = 2;
             // 
-            // textBox3
+            // Cylinders
             // 
-            this.textBox3.Location = new System.Drawing.Point(145, 149);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 4;
+            this.Cylinders.Location = new System.Drawing.Point(145, 149);
+            this.Cylinders.Name = "Cylinders";
+            this.Cylinders.Size = new System.Drawing.Size(100, 22);
+            this.Cylinders.TabIndex = 4;
             // 
-            // textBox4
+            // ToSixty
             // 
-            this.textBox4.Location = new System.Drawing.Point(39, 149);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 3;
+            this.ToSixty.Location = new System.Drawing.Point(39, 149);
+            this.ToSixty.Name = "ToSixty";
+            this.ToSixty.Size = new System.Drawing.Size(100, 22);
+            this.ToSixty.TabIndex = 3;
             // 
-            // textBox5
+            // RPM
             // 
-            this.textBox5.Location = new System.Drawing.Point(145, 177);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 6;
+            this.RPM.Location = new System.Drawing.Point(145, 177);
+            this.RPM.Name = "RPM";
+            this.RPM.Size = new System.Drawing.Size(100, 22);
+            this.RPM.TabIndex = 6;
             // 
-            // textBox6
+            // Horsepower
             // 
-            this.textBox6.Location = new System.Drawing.Point(39, 177);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 5;
+            this.Horsepower.Location = new System.Drawing.Point(39, 177);
+            this.Horsepower.Name = "Horsepower";
+            this.Horsepower.Size = new System.Drawing.Size(100, 22);
+            this.Horsepower.TabIndex = 5;
             // 
             // button1
             // 
@@ -98,21 +99,29 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Name
+            // 
+            this.Name.Location = new System.Drawing.Point(92, 205);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(100, 22);
+            this.Name.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Name);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.RPM);
+            this.Controls.Add(this.Horsepower);
+            this.Controls.Add(this.Cylinders);
+            this.Controls.Add(this.ToSixty);
+            this.Controls.Add(this.cc);
+            this.Controls.Add(this.TopSpeedTB);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -123,13 +132,14 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox TopSpeedTB;
+        private System.Windows.Forms.TextBox cc;
+        private System.Windows.Forms.TextBox Cylinders;
+        private System.Windows.Forms.TextBox ToSixty;
+        private System.Windows.Forms.TextBox RPM;
+        private System.Windows.Forms.TextBox Horsepower;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox Name;
     }
 }
 
