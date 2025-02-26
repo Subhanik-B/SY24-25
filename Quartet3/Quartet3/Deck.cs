@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,9 +53,24 @@ namespace Quartet3
             }
         }
 
-        public void hands(Hand h1, Hand h2, Hand h3, Hand h4)
+        public void addHands(Hand h1, Hand h2, Hand h3, Hand h4)
         {
-
+            if (h1 != null)
+            {
+                Hands.Add(h1);
+            }
+            if (h2 != null)
+            {
+                Hands.Add(h2);
+            }
+            if(h3 != null)
+            {
+                Hands.Add(h3);
+            }
+            if (h4 != null)
+            {
+                Hands.Add(h4);
+            }
         }
     }
 }

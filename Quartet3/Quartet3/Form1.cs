@@ -64,19 +64,19 @@ namespace Quartet3
                 }
                 try
                 {
-                    showCard(beans[i + 1]);
+                    showCard(beans[i + 1], i+1);
                 } catch (Exception)
                 {
-                    showCard(A1);
+                    showCard(A1, 0);
                 }
             }
             else
             {
-                showCard(A1);
+                showCard(beans[0], 0);
             }
         }
 
-        private void showCard(CarCard card)
+        private void showCard(CarCard card, int i)
         {
             display = card;
             pictureBox1.Load(card.id + ".jpg");
@@ -88,6 +88,13 @@ namespace Quartet3
             RPM.Text = card.rpm.ToString();
             Name.Text = card.name.ToString();
             ID.Text = card.id.ToString();
+
+            pictureBox2.Load(beans[i+1].id + ".jpg");
+            textBox2.Text = beans[i+1].id.ToString();
+            textBox3.Text = beans[i+1].name.ToString();
+            textBox4.Text = beans[i+1].rpm.ToString();
+            textBox5.Text = beans[i+1].hp.ToString();
+            textBox6.Text = beans[i+1].cylinders.ToString();
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -124,6 +131,7 @@ namespace Quartet3
             beans.Add(H2);
             beans.Add(H3);
             beans.Add(H4);
+
             deck.updateDeck(beans);
             deck.shuffle();
             deck.updateDeck(beans);
@@ -136,17 +144,23 @@ namespace Quartet3
         private void button2_Click(object sender, EventArgs e)
         {
             List<Hand> hands = new List<Hand>();
+            hands.Add(p1);
+            hands.Add(p2);
+            hands.Add(p3);
+            hands.Add(p4);
             int i = 0;
-            int ind = 0;
+            int index = 0;
             int.TryParse(textBox1.Text, out i);
-            for (int j = 0; j < 32/i; j++)
+            for (int j = 0; j < (32/i); j++)
             {
                 for(int k = 0; k < i; k++)
                 {
-                    hands[k].addCard(beans[ind]);
-                    ind++;
+                    hands[k].addCard(beans[index]);
+                    index++;
                 }
             }
+            button2.Hide();
+            textBox1.Hide();
         }
     }
 }
