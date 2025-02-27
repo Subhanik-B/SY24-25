@@ -9,11 +9,11 @@ namespace Quartet3
 {
     internal class Hand
     {
-        List<CarCard> carCards;
+        List<CarCard> carCards = new List<CarCard>();
 
-        public Hand(List<CarCard> cards)
+        public Hand()
         {
-            this.carCards = cards;
+            
         }
 
         public void updateHand(List<CarCard> cards)

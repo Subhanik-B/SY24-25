@@ -52,34 +52,37 @@ namespace Quartet3
         CarCard H3 = new CarCard("H3", "Pontiac GTO", 280, 5.7, 5970, 400, 8, 5200);
         CarCard H4 = new CarCard("H4", "BMW M5", 250, 4.7, 4999, 507, 10, 7750);
         Deck deck = new Deck(null);
+        Hand p1 = new Hand();
+        Hand p2 = new Hand();
+        Hand p3 = new Hand();
+        Hand p4 = new Hand();
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            if (pictureBox1.Image != null) {
-                int i = 0;
-                while (beans[i].id != display.id)
-                {
-                    i+=4;
-                }
-                try
-                {
-                    showCard(beans[i + 1], i+1);
-                } catch (Exception)
-                {
-                    showCard(A1, 0);
-                }
-            }
-            else
-            {
-                showCard(beans[0], 0);
-            }
+            showCard(p1.getTop());
         }
-
-        private void showCard(CarCard card, int i)
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int i = random.Next(0, 32);
+            showCard1(beans[i]);
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int i = random.Next(0, 32);
+            showCard2(beans[i], i);
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int i = random.Next(0, 32);
+            showCard3(beans[i], i);
+        }
+        private void showCard(CarCard card)
         {
             display = card;
-            //pictureBox1.Load(card.id + ".jpg");
+            pictureBox1.Load(card.id + ".jpg");
             TopSpeedTB.Text = card.maxspeed.ToString();
             ToSixty.Text = card.zerotosixty.ToString();
             Horsepower.Text = card.hp.ToString();
@@ -88,36 +91,43 @@ namespace Quartet3
             RPM.Text = card.rpm.ToString();
             Name.Text = card.name.ToString();
             ID.Text = card.id.ToString();
+        }
 
-            //pictureBox2.Load(beans[i+1].id + ".jpg");
-            textBox2.Text = beans[i+1].id.ToString();
-            textBox3.Text = beans[i+1].name.ToString();
-            textBox4.Text = beans[i+1].rpm.ToString();
-            textBox5.Text = beans[i+1].hp.ToString();
-            textBox6.Text = beans[i+1].cylinders.ToString();
-            textBox7.Text = beans[i + 1].zerotosixty.ToString();
-            textBox8.Text = beans[i + 1].cc.ToString();
-            textBox9.Text = beans[i + 1].maxspeed.ToString();
-
-            //pictureBox3.Load(beans[i + 2].id + ".jpg");
-            textBox10.Text = beans[i + 2].id.ToString();
-            textBox11.Text = beans[i + 2].name.ToString();
-            textBox12.Text = beans[i + 2].rpm.ToString();
-            textBox13.Text = beans[i + 2].hp.ToString();
-            textBox14.Text = beans[i + 2].cylinders.ToString();
-            textBox15.Text = beans[i + 2].zerotosixty.ToString();
-            textBox16.Text = beans[i + 2].cc.ToString();
-            textBox17.Text = beans[i + 2].maxspeed.ToString();
-
-            //pictureBox3.Load(beans[i + 3].id + ".jpg");
-            textBox18.Text = beans[i + 3].id.ToString();
-            textBox19.Text = beans[i + 3].name.ToString();
-            textBox20.Text = beans[i + 3].rpm.ToString();
-            textBox21.Text = beans[i + 3].hp.ToString();
-            textBox22.Text = beans[i + 3].cylinders.ToString();
-            textBox23.Text = beans[i + 3].zerotosixty.ToString();
-            textBox24.Text = beans[i + 3].cc.ToString();
-            textBox25.Text = beans[i + 3].maxspeed.ToString();
+        private void showCard1(CarCard card)
+        {
+            pictureBox2.Load(card.id + ".jpg");
+            textBox2.Text = card.id.ToString();
+            textBox3.Text = card.name.ToString();
+            textBox4.Text = card.rpm.ToString();
+            textBox5.Text = card.hp.ToString();
+            textBox6.Text = card.cylinders.ToString();
+            textBox7.Text = card.zerotosixty.ToString();
+            textBox8.Text = card.cc.ToString();
+            textBox9.Text = card.maxspeed.ToString();
+        }
+        private void showCard2(CarCard card, int i)
+        {
+            pictureBox3.Load(beans[i].id + ".jpg");
+            textBox10.Text = beans[i].id.ToString();
+            textBox11.Text = beans[i].name.ToString();
+            textBox12.Text = beans[i].rpm.ToString();
+            textBox13.Text = beans[i].hp.ToString();
+            textBox14.Text = beans[i].cylinders.ToString();
+            textBox15.Text = beans[i].zerotosixty.ToString();
+            textBox16.Text = beans[i].cc.ToString();
+            textBox17.Text = beans[i].maxspeed.ToString();
+        }
+        private void showCard3(CarCard card, int i)
+        {
+            pictureBox4.Load(beans[i].id + ".jpg");
+            textBox18.Text = beans[i].id.ToString();
+            textBox19.Text = beans[i].name.ToString();
+            textBox20.Text = beans[i].rpm.ToString();
+            textBox21.Text = beans[i].hp.ToString();
+            textBox22.Text = beans[i].cylinders.ToString();
+            textBox23.Text = beans[i].zerotosixty.ToString();
+            textBox24.Text = beans[i].cc.ToString();
+            textBox25.Text = beans[i].maxspeed.ToString();
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -159,31 +169,20 @@ namespace Quartet3
             deck.shuffle();
             deck.updateDeck(beans);
         }
-        Hand p1 = new Hand(null);
-        Hand p2 = new Hand(null);
-        Hand p3 = new Hand(null);
-        Hand p4 = new Hand(null);
-        
-        private void button2_Click(object sender, EventArgs e)
+
+        private void splitCard_Click(object sender, EventArgs e)
         {
-            List<Hand> hands = new List<Hand>();
-            hands.Add(p1);
-            hands.Add(p2);
-            hands.Add(p3);
-            hands.Add(p4);
-            int i = 0;
-            int index = 0;
-            int.TryParse(textBox1.Text, out i);
-            for (int j = 0; j < (32/i); j++)
+            //shuffle
+            deck.shuffle();
+            //deal cards
+            
+            while (deck.isEmpty() %4 == 0)
             {
-                for(int k = 0; k < i; k++)
-                {
-                    hands[k].addCard(beans[index]);
-                    index++;
-                }
+                p1.addCard(deck.GetCard(0));
+                p2.addCard(deck.GetCard(0));
+                p3.addCard(deck.GetCard(0));
+                p4.addCard(deck.GetCard(0));
             }
-            button2.Hide();
-            textBox1.Hide();
         }
     }
 }
