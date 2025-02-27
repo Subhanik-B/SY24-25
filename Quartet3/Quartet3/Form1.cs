@@ -60,7 +60,7 @@ namespace Quartet3
                 int i = 0;
                 while (beans[i].id != display.id)
                 {
-                    i++;
+                    i+=4;
                 }
                 try
                 {
@@ -79,7 +79,7 @@ namespace Quartet3
         private void showCard(CarCard card, int i)
         {
             display = card;
-            pictureBox1.Load(card.id + ".jpg");
+            //pictureBox1.Load(card.id + ".jpg");
             TopSpeedTB.Text = card.maxspeed.ToString();
             ToSixty.Text = card.zerotosixty.ToString();
             Horsepower.Text = card.hp.ToString();
@@ -89,12 +89,35 @@ namespace Quartet3
             Name.Text = card.name.ToString();
             ID.Text = card.id.ToString();
 
-            pictureBox2.Load(beans[i+1].id + ".jpg");
+            //pictureBox2.Load(beans[i+1].id + ".jpg");
             textBox2.Text = beans[i+1].id.ToString();
             textBox3.Text = beans[i+1].name.ToString();
             textBox4.Text = beans[i+1].rpm.ToString();
             textBox5.Text = beans[i+1].hp.ToString();
             textBox6.Text = beans[i+1].cylinders.ToString();
+            textBox7.Text = beans[i + 1].zerotosixty.ToString();
+            textBox8.Text = beans[i + 1].cc.ToString();
+            textBox9.Text = beans[i + 1].maxspeed.ToString();
+
+            //pictureBox3.Load(beans[i + 2].id + ".jpg");
+            textBox10.Text = beans[i + 2].id.ToString();
+            textBox11.Text = beans[i + 2].name.ToString();
+            textBox12.Text = beans[i + 2].rpm.ToString();
+            textBox13.Text = beans[i + 2].hp.ToString();
+            textBox14.Text = beans[i + 2].cylinders.ToString();
+            textBox15.Text = beans[i + 2].zerotosixty.ToString();
+            textBox16.Text = beans[i + 2].cc.ToString();
+            textBox17.Text = beans[i + 2].maxspeed.ToString();
+
+            //pictureBox3.Load(beans[i + 3].id + ".jpg");
+            textBox18.Text = beans[i + 3].id.ToString();
+            textBox19.Text = beans[i + 3].name.ToString();
+            textBox20.Text = beans[i + 3].rpm.ToString();
+            textBox21.Text = beans[i + 3].hp.ToString();
+            textBox22.Text = beans[i + 3].cylinders.ToString();
+            textBox23.Text = beans[i + 3].zerotosixty.ToString();
+            textBox24.Text = beans[i + 3].cc.ToString();
+            textBox25.Text = beans[i + 3].maxspeed.ToString();
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
