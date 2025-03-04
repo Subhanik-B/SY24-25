@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Quartet3
 {
@@ -17,8 +18,6 @@ namespace Quartet3
         {
             InitializeComponent();
         }
-        CarCard display = new CarCard("","",0,0,0,0,0,0);
-        List<CarCard> beans = new List<CarCard>();
         CarCard A1 = new CarCard("A1", "BMW Z8", 250, 4.7, 400, 4941, 8, 6600);
         CarCard A2 = new CarCard("A2", "MG Xpower SV Club Sport", 230, 4.2, 465, 4997, 8, 6450);
         CarCard A3 = new CarCard("A3", "Ferrari F430 F1", 315, 4.0, 490, 4308, 8, 8500);
@@ -51,137 +50,166 @@ namespace Quartet3
         CarCard H2 = new CarCard("H2", "Alfa Romeo GT", 243, 6.7, 240, 3179, 6, 6400);
         CarCard H3 = new CarCard("H3", "Pontiac GTO", 280, 5.7, 5970, 400, 8, 5200);
         CarCard H4 = new CarCard("H4", "BMW M5", 250, 4.7, 4999, 507, 10, 7750);
-        Deck deck = new Deck(null);
-        Hand p1 = new Hand();
-        Hand p2 = new Hand();
-        Hand p3 = new Hand();
-        Hand p4 = new Hand();
 
-        private void button1_Click(object sender, EventArgs e)
+        List<CarCard> list = new List<CarCard>();
+        Deck d;
+        Hand h1 = new Hand();
+        Hand h2 = new Hand();
+        Hand h3 = new Hand();
+        Hand h4 = new Hand();
+        private void Form1_Load(object sender, EventArgs e)
         {
-            showCard(p1.getTop());
+            list.Add(A1);
+            list.Add(A2);
+            list.Add(A3);
+            list.Add(A4);
+            list.Add(B1);
+            list.Add(B2);
+            list.Add(B3);
+            list.Add(B4);
+            list.Add(C1);
+            list.Add(C2);
+            list.Add(C3);
+            list.Add(C4);
+            list.Add(D1);
+            list.Add(D2);
+            list.Add(D3);
+            list.Add(D4);
+            list.Add(E1);
+            list.Add(E2);
+            list.Add(E3);
+            list.Add(E4);
+            list.Add(F1);
+            list.Add(F2);
+            list.Add(F3);
+            list.Add(F4);
+            list.Add(G1);
+            list.Add(G2);
+            list.Add(G3);
+            list.Add(G4);
+            list.Add(H1);
+            list.Add(H2);
+            list.Add(H3);
+            list.Add(H4);
+            d = new Deck(list);
+            d.Shuffle();
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void ShowCard1(CarCard c)
         {
-            Random random = new Random();
-            int i = random.Next(0, 32);
-            showCard1(beans[i]);
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Random random = new Random();
-            int i = random.Next(0, 32);
-            showCard2(beans[i], i);
-        }
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Random random = new Random();
-            int i = random.Next(0, 32);
-            showCard3(beans[i], i);
-        }
-        private void showCard(CarCard card)
-        {
-            display = card;
-            pictureBox1.Load(card.id + ".jpg");
-            TopSpeedTB.Text = card.maxspeed.ToString();
-            ToSixty.Text = card.zerotosixty.ToString();
-            Horsepower.Text = card.hp.ToString();
-            cc.Text = card.cc.ToString();
-            Cylinders.Text = card.cylinders.ToString();
-            RPM.Text = card.rpm.ToString();
-            Name.Text = card.name.ToString();
-            ID.Text = card.id.ToString();
-        }
-
-        private void showCard1(CarCard card)
-        {
-            pictureBox2.Load(card.id + ".jpg");
-            textBox2.Text = card.id.ToString();
-            textBox3.Text = card.name.ToString();
-            textBox4.Text = card.rpm.ToString();
-            textBox5.Text = card.hp.ToString();
-            textBox6.Text = card.cylinders.ToString();
-            textBox7.Text = card.zerotosixty.ToString();
-            textBox8.Text = card.cc.ToString();
-            textBox9.Text = card.maxspeed.ToString();
-        }
-        private void showCard2(CarCard card, int i)
-        {
-            pictureBox3.Load(beans[i].id + ".jpg");
-            textBox10.Text = beans[i].id.ToString();
-            textBox11.Text = beans[i].name.ToString();
-            textBox12.Text = beans[i].rpm.ToString();
-            textBox13.Text = beans[i].hp.ToString();
-            textBox14.Text = beans[i].cylinders.ToString();
-            textBox15.Text = beans[i].zerotosixty.ToString();
-            textBox16.Text = beans[i].cc.ToString();
-            textBox17.Text = beans[i].maxspeed.ToString();
-        }
-        private void showCard3(CarCard card, int i)
-        {
-            pictureBox4.Load(beans[i].id + ".jpg");
-            textBox18.Text = beans[i].id.ToString();
-            textBox19.Text = beans[i].name.ToString();
-            textBox20.Text = beans[i].rpm.ToString();
-            textBox21.Text = beans[i].hp.ToString();
-            textBox22.Text = beans[i].cylinders.ToString();
-            textBox23.Text = beans[i].zerotosixty.ToString();
-            textBox24.Text = beans[i].cc.ToString();
-            textBox25.Text = beans[i].maxspeed.ToString();
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-            beans.Add(A1);
-            beans.Add(A2);
-            beans.Add(A3);
-            beans.Add(A4);
-            beans.Add(B1);
-            beans.Add(B2);
-            beans.Add(B3);
-            beans.Add(B4);
-            beans.Add(C1);
-            beans.Add(C2);
-            beans.Add(C3);
-            beans.Add(C4);
-            beans.Add(D1);
-            beans.Add(D2);
-            beans.Add(D3);
-            beans.Add(D4);
-            beans.Add(E1);
-            beans.Add(E2);
-            beans.Add(E3);
-            beans.Add(E4);
-            beans.Add(F1);
-            beans.Add(F2);
-            beans.Add(F3);
-            beans.Add(F4);
-            beans.Add(G1);
-            beans.Add(G2);
-            beans.Add(G3);
-            beans.Add(G4);
-            beans.Add(H1);
-            beans.Add(H2);
-            beans.Add(H3);
-            beans.Add(H4);
-
-            deck.updateDeck(beans);
-            deck.shuffle();
-            deck.updateDeck(beans);
-        }
-
-        private void splitCard_Click(object sender, EventArgs e)
-        {
-            //shuffle
-            deck.shuffle();
-            //deal cards
-            
-            while (deck.isEmpty() %4 == 0)
+            if (c == null)
             {
-                p1.addCard(deck.GetCard(0));
-                p2.addCard(deck.GetCard(0));
-                p3.addCard(deck.GetCard(0));
-                p4.addCard(deck.GetCard(0));
+                pictureBox1.Image = null;
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+                textBox6.Text = "";
+                textBox25.Text = "";
+                return;
+            }
+            pictureBox1.Load(c.id + ".jpg");
+            textBox1.Text = c.maxspeed.ToString();
+            textBox2.Text = c.zerotosixty.ToString();
+            textBox3.Text = c.hp.ToString();
+            textBox4.Text = c.cc.ToString();
+            textBox5.Text = c.cylinders.ToString();
+            textBox6.Text = c.rpm.ToString();
+            textBox25.Text = c.id.ToString();
+        }
+        private void ShowCard2(CarCard c)
+        {
+            if (c == null)
+            {
+                pictureBox1.Image = null;
+                textBox7.Text = "";
+                textBox8.Text = "";
+                textBox9.Text = "";
+                textBox10.Text = "";
+                textBox11.Text = "";
+                textBox12.Text = "";
+                textBox26.Text = "";
+                return;
+            }
+            pictureBox2.Load(c.id + ".jpg");
+            textBox7.Text = c.maxspeed.ToString();
+            textBox8.Text = c.zerotosixty.ToString();
+            textBox9.Text = c.hp.ToString();
+            textBox10.Text = c.cc.ToString();
+            textBox11.Text = c.cylinders.ToString();
+            textBox12.Text = c.rpm.ToString();
+            textBox26.Text = c.id.ToString();
+        }
+        private void ShowCard3(CarCard c)
+        {
+            if (c == null)
+            {
+                pictureBox1.Image = null;
+                textBox13.Text = "";
+                textBox14.Text = "";
+                textBox15.Text = "";
+                textBox16.Text = "";
+                textBox17.Text = "";
+                textBox18.Text = "";
+                textBox27.Text = "";
+                return;
+            }
+            pictureBox3.Load(c.id + ".jpg");
+            textBox13.Text = c.maxspeed.ToString();
+            textBox14.Text = c.zerotosixty.ToString();
+            textBox15.Text = c.hp.ToString();
+            textBox16.Text = c.cc.ToString();
+            textBox17.Text = c.cylinders.ToString();
+            textBox18.Text = c.rpm.ToString();
+            textBox27.Text = c.id.ToString();
+        }
+        private void ShowCard4(CarCard c)
+        {
+            if (c == null)
+            {
+                pictureBox1.Image = null;
+                textBox19.Text = "";
+                textBox20.Text = "";
+                textBox21.Text = "";
+                textBox22.Text = "";
+                textBox23.Text = "";
+                textBox24.Text = "";
+                textBox28.Text = "";
+                return;
+            }
+            pictureBox4.Load(c.id + ".jpg");
+            textBox19.Text = c.maxspeed.ToString();
+            textBox20.Text = c.zerotosixty.ToString();
+            textBox21.Text = c.hp.ToString();
+            textBox22.Text = c.cc.ToString();
+            textBox23.Text = c.cylinders.ToString();
+            textBox24.Text = c.rpm.ToString();
+            textBox28.Text = c.id.ToString();
+        }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            ShowCard1(h1.topCard());
+            ShowCard2(h2.topCard());
+            ShowCard3(h3.topCard());
+            ShowCard4(h4.topCard());
+            h1.cycle();
+            h2.cycle();
+            h3.cycle();
+            h4.cycle();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //shuffle deck
+            d.Shuffle();
+            //deal cards
+            while (!d.IsEmpty())
+            {
+                h1.Add(d.GetCard(0));
+                h2.Add(d.GetCard(0));
+                h3.Add(d.GetCard(0));
+                h4.Add(d.GetCard(0));
             }
         }
     }

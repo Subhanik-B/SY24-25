@@ -12,17 +12,36 @@ namespace Quartet3
     internal class Deck
     {
         List<CarCard> carCards;
-        List<Hand> Hands;
-        Random random = new Random();
         public Deck(List<CarCard> cards)
         {
             this.carCards = cards;
         }
+        public void Shuffle()
+        {
+            int n = 0;
+            Random rnd = new Random();
+            CarCard temp = null;
+            for (int i = 0; i < carCards.Count; i++)
+            {
+                temp = carCards[i];
+                n = rnd.Next(carCards.Count);
+                carCards[i] = carCards[n];
+                carCards[n] = temp;
+            }
+        }
         public CarCard GetCard(int index)
         {
-            CarCard C = carCards[index];
-            carCards.RemoveAt(index);
-            return C;
+            if (carCards.Count > 0)
+            {
+                CarCard C = carCards[index];
+                carCards.RemoveAt(index);
+                return C;
+            }
+            return null;
+        }
+        public bool IsEmpty()
+        {
+            return carCards.Count == 0;
         }
         public override string ToString()
         {
@@ -32,30 +51,6 @@ namespace Quartet3
                 retVal += card.ToString();
             }
             return retVal;
-        }
-        public void updateDeck(List<CarCard> cards)
-        {
-            this.carCards = cards;
-        }
-
-        public void shuffle()
-        {
-            int n = 0;
-            int n2 = 0;
-            n = random.Next(carCards.Count);
-            CarCard temp;
-            for (int i = 0; i < carCards.Count; i++)
-            {
-                n2 = random.Next(carCards.Count);
-                temp = carCards[n];
-                carCards[n] = carCards[n2];
-                carCards[n2] = temp;
-            }
-        }
-
-        public int isEmpty()
-        {
-            return carCards.Count;
         }
     }
 }
