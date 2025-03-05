@@ -121,7 +121,7 @@ namespace Quartet3
         {
             if (c == null)
             {
-                pictureBox1.Image = null;
+                pictureBox2.Image = null;
                 textBox7.Text = "";
                 textBox8.Text = "";
                 textBox9.Text = "";
@@ -144,7 +144,7 @@ namespace Quartet3
         {
             if (c == null)
             {
-                pictureBox1.Image = null;
+                pictureBox3.Image = null;
                 textBox13.Text = "";
                 textBox14.Text = "";
                 textBox15.Text = "";
@@ -167,7 +167,7 @@ namespace Quartet3
         {
             if (c == null)
             {
-                pictureBox1.Image = null;
+                pictureBox4.Image = null;
                 textBox19.Text = "";
                 textBox20.Text = "";
                 textBox21.Text = "";
@@ -186,17 +186,33 @@ namespace Quartet3
             textBox24.Text = c.rpm.ToString();
             textBox28.Text = c.id.ToString();
         }
-
+        int turn = 1;
         public void button1_Click(object sender, EventArgs e)
         {
-            ShowCard1(h1.topCard());
-            ShowCard2(h2.topCard());
-            ShowCard3(h3.topCard());
-            ShowCard4(h4.topCard());
-            h1.cycle();
-            h2.cycle();
-            h3.cycle();
-            h4.cycle();
+            ShowCard1(null);
+            ShowCard2(null);
+            ShowCard3(null);
+            ShowCard4(null);
+            switch (turn)
+            {
+                case 1:
+                    ShowCard1(h1.topCard());
+                    turn++;
+                    break;
+                case 2:
+                    ShowCard2(h2.topCard());
+                    turn++;
+                    break;
+                case 3:
+                    ShowCard3(h3.topCard());
+                    turn++;
+                    break;
+                case 4:
+                    ShowCard4(h4.topCard());
+                    turn = 1;
+                    break;
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -210,6 +226,99 @@ namespace Quartet3
                 h2.Add(d.GetCard(0));
                 h3.Add(d.GetCard(0));
                 h4.Add(d.GetCard(0));
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ShowCard1(h1.topCard());
+            ShowCard2(h2.topCard());
+            ShowCard3(h3.topCard());
+            ShowCard4(h4.topCard());
+
+            if (h1.topCard().maxspeed > h2.topCard().maxspeed && h1.topCard().maxspeed > h3.topCard().maxspeed && h1.topCard().maxspeed > h4.topCard().maxspeed)
+            {
+                h1.cycle();
+                h1.Add(h2.topCard());
+                h1.Add(h3.topCard());
+                h1.Add(h4.topCard());
+                h2.remove();
+                h3.remove();
+                h4.remove();
+            }
+            if (h2.topCard().maxspeed > h1.topCard().maxspeed && h2.topCard().maxspeed > h3.topCard().maxspeed && h2.topCard().maxspeed > h4.topCard().maxspeed)
+            {
+                h2.cycle();
+                h2.Add(h1.topCard());
+                h2.Add(h3.topCard());
+                h2.Add(h4.topCard());
+                h1.remove();
+                h3.remove();
+                h4.remove();
+            }
+            if (h3.topCard().maxspeed > h1.topCard().maxspeed && h3.topCard().maxspeed > h2.topCard().maxspeed && h3.topCard().maxspeed > h4.topCard().maxspeed)
+            {
+                h3.cycle();
+                h3.Add(h2.topCard());
+                h3.Add(h1.topCard());
+                h3.Add(h4.topCard());
+                h2.remove();
+                h1.remove();
+                h4.remove();
+            }
+            if (h4.topCard().maxspeed > h1.topCard().maxspeed && h4.topCard().maxspeed > h2.topCard().maxspeed && h4.topCard().maxspeed > h3.topCard().maxspeed)
+            {
+                h4.cycle();
+                h4.Add(h2.topCard());
+                h4.Add(h3.topCard());
+                h4.Add(h1.topCard());
+                h2.remove();
+                h3.remove();
+                h1.remove();
+            }
+            if (h1.topCard().maxspeed == h2.topCard().maxspeed || h1.topCard().maxspeed == h3.topCard().maxspeed || h1.topCard().maxspeed == h4.topCard().maxspeed || h2.topCard().maxspeed == h3.topCard().maxspeed || h2.topCard().maxspeed == h4.topCard().maxspeed || h3.topCard().maxspeed == h4.topCard().maxspeed)
+            {
+                Random random = new Random();
+                int a = random.Next(1, 5);
+                switch (a)
+                {
+                    case 1:
+                        h1.cycle();
+                        h1.Add(h2.topCard());
+                        h1.Add(h3.topCard());
+                        h1.Add(h4.topCard());
+                        h2.remove();
+                        h3.remove();
+                        h4.remove();
+                        break;
+                    case 2:
+                        h2.cycle();
+                        h2.Add(h1.topCard());
+                        h2.Add(h3.topCard());
+                        h2.Add(h4.topCard());
+                        h1.remove();
+                        h3.remove();
+                        h4.remove();
+                        break;
+                    case 3:
+                        h3.cycle();
+                        h3.Add(h2.topCard());
+                        h3.Add(h1.topCard());
+                        h3.Add(h4.topCard());
+                        h2.remove();
+                        h1.remove();
+                        h4.remove();
+                        break;
+                    case 4:
+                        h4.cycle();
+                        h4.Add(h2.topCard());
+                        h4.Add(h3.topCard());
+                        h4.Add(h1.topCard());
+                        h2.remove();
+                        h3.remove();
+                        h1.remove();
+                        break;
+                }
             }
         }
     }

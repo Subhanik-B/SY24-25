@@ -24,5 +24,9 @@ namespace Quartet3
             carCards.Add(carCards[0]);
             carCards.Remove(carCards[0]);
         }
+        public void remove()
+        {
+            carCards.Remove(carCards[0]);
+        }
     }
 }
