@@ -245,6 +245,7 @@ namespace Quartet3
                 h2.remove();
                 h3.remove();
                 h4.remove();
+                WinnerBox.Text = h1.topCard().name.ToString();
             }
             if (h2.topCard().maxspeed > h1.topCard().maxspeed && h2.topCard().maxspeed > h3.topCard().maxspeed && h2.topCard().maxspeed > h4.topCard().maxspeed)
             {
@@ -255,6 +256,7 @@ namespace Quartet3
                 h1.remove();
                 h3.remove();
                 h4.remove();
+                WinnerBox.Text = h2.topCard().name.ToString();
             }
             if (h3.topCard().maxspeed > h1.topCard().maxspeed && h3.topCard().maxspeed > h2.topCard().maxspeed && h3.topCard().maxspeed > h4.topCard().maxspeed)
             {
@@ -265,6 +267,7 @@ namespace Quartet3
                 h2.remove();
                 h1.remove();
                 h4.remove();
+                WinnerBox.Text = h3.topCard().name.ToString();
             }
             if (h4.topCard().maxspeed > h1.topCard().maxspeed && h4.topCard().maxspeed > h2.topCard().maxspeed && h4.topCard().maxspeed > h3.topCard().maxspeed)
             {
@@ -275,6 +278,7 @@ namespace Quartet3
                 h2.remove();
                 h3.remove();
                 h1.remove();
+                WinnerBox.Text = h4.topCard().name.ToString();
             }
             if (h1.topCard().maxspeed == h2.topCard().maxspeed || h1.topCard().maxspeed == h3.topCard().maxspeed || h1.topCard().maxspeed == h4.topCard().maxspeed || h2.topCard().maxspeed == h3.topCard().maxspeed || h2.topCard().maxspeed == h4.topCard().maxspeed || h3.topCard().maxspeed == h4.topCard().maxspeed)
             {
@@ -290,6 +294,7 @@ namespace Quartet3
                         h2.remove();
                         h3.remove();
                         h4.remove();
+                        WinnerBox.Text = h1.topCard().name.ToString();
                         break;
                     case 2:
                         h2.cycle();
@@ -299,6 +304,7 @@ namespace Quartet3
                         h1.remove();
                         h3.remove();
                         h4.remove();
+                        WinnerBox.Text = h2.topCard().name.ToString();
                         break;
                     case 3:
                         h3.cycle();
@@ -308,6 +314,7 @@ namespace Quartet3
                         h2.remove();
                         h1.remove();
                         h4.remove();
+                        WinnerBox.Text = h3.topCard().name.ToString();
                         break;
                     case 4:
                         h4.cycle();
@@ -317,6 +324,7 @@ namespace Quartet3
                         h2.remove();
                         h3.remove();
                         h1.remove();
+                        WinnerBox.Text = h4.topCard().name.ToString();
                         break;
                 }
             }
