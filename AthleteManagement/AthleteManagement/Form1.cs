@@ -15,15 +15,16 @@ namespace AthleteManagement
 {
     public partial class Form1 : Form
     {
+        DatabaseHelper databaseHelper = new DatabaseHelper("C:\\Users\\sbha527\\Documents\\ah\\SY24-25\\AthleteManagement\\AthleteManagement\\bin\\Debug\\Athletes.xml");
         public Form1()
         {
             InitializeComponent();
         }
-        public string XmlFilePath { get; private set; }
-        public XDocument XmlDocument { get; private set; }
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.
+            Athlete athlete = new Athlete();
+            databaseHelper.AddAthlete(athlete);
+
         }
     }
 }
