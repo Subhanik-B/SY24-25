@@ -46,7 +46,12 @@ namespace AthleteManagement
         public Athlete GetAthleteById(int id)
         {
             List<Athlete> athletes = GetAllAthletes();
-            return athletes.Find(a => a.AthleteID == id);
+            int i = 0;
+            while (athletes[i].AthleteID != id)
+            {
+                i++;
+            }
+            return athletes[i];
         }
         public void AddAthlete(Athlete athlete)
         {
