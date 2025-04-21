@@ -44,6 +44,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.AddAtButton = new System.Windows.Forms.Button();
+            this.NextBttn = new System.Windows.Forms.Button();
+            this.PreviousBttn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +77,7 @@
             this.EditButton.TabIndex = 2;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // DeleteButton
             // 
@@ -193,11 +196,33 @@
             this.AddAtButton.Visible = false;
             this.AddAtButton.Click += new System.EventHandler(this.AddAtButton_Click);
             // 
+            // NextBttn
+            // 
+            this.NextBttn.Location = new System.Drawing.Point(121, 234);
+            this.NextBttn.Name = "NextBttn";
+            this.NextBttn.Size = new System.Drawing.Size(75, 23);
+            this.NextBttn.TabIndex = 16;
+            this.NextBttn.Text = "Next ->";
+            this.NextBttn.UseVisualStyleBackColor = true;
+            this.NextBttn.Visible = false;
+            // 
+            // PreviousBttn
+            // 
+            this.PreviousBttn.Location = new System.Drawing.Point(3, 234);
+            this.PreviousBttn.Name = "PreviousBttn";
+            this.PreviousBttn.Size = new System.Drawing.Size(75, 23);
+            this.PreviousBttn.TabIndex = 17;
+            this.PreviousBttn.Text = "<- Next";
+            this.PreviousBttn.UseVisualStyleBackColor = true;
+            this.PreviousBttn.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PreviousBttn);
+            this.Controls.Add(this.NextBttn);
             this.Controls.Add(this.AddAtButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox6);
@@ -241,6 +266,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button AddAtButton;
+        private System.Windows.Forms.Button NextBttn;
+        private System.Windows.Forms.Button PreviousBttn;
     }
 }
 

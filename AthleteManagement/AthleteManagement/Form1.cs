@@ -16,24 +16,32 @@ namespace AthleteManagement
     public partial class Form1 : Form
     {
         DatabaseHelper databaseHelper = new DatabaseHelper("C:\\Users\\sbha527\\Documents\\ah\\SY24-25\\AthleteManagement\\AthleteManagement\\bin\\Debug\\Athletes.xml");
+        int globalID = 1;
+        List<Athlete> athletes = new List<Athlete> {};
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*Athlete athlete = new Athlete();
-            athlete.AthleteID = 1;
-            athlete.BibNumber = "1";
-            athlete.Age = 24;
-            athlete.FirstName = "Bob";
-            athlete.LastName = "Cheese";
-            databaseHelper.AddAthlete(athlete);*/
             dataGridView1.Columns.Add("Athlete Name", "Athlete Name");
             dataGridView1.Columns.Add("ID", "ID");
             dataGridView1.Columns.Add("Age", "Age");
-            dataGridView1.Rows.Add();
-            
+            athletes = databaseHelper.GetAllAthletes();
+            try
+            {
+                dataGridView1.Rows.Add(athletes.Count() - 1);
+                for (int i = 0; i < athletes.Count(); i++)
+                {
+                    dataGridView1.Rows[i].Cells[0].Value = athletes[i].FullName;
+                    dataGridView1.Rows[i].Cells[1].Value = athletes[i].AthleteID;
+                    dataGridView1.Rows[i].Cells[2].Value = athletes[i].Age;
+                    globalID++;
+                }
+            }
+            catch (Exception ex)
+            {
+            } 
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -54,6 +62,9 @@ namespace AthleteManagement
             label4.Visible = true;
             label5.Visible = true;
             AddAtButton.Visible = true;
+
+            textBox4.ReadOnly = true;
+            textBox4.Text = globalID.ToString();
         }
 
         private void AddAtButton_Click(object sender, EventArgs e)
@@ -76,10 +87,8 @@ namespace AthleteManagement
             AddAtButton.Visible = false;
 
             Athlete athlete = new Athlete();
-            int id = 0;
             int age = 0;
-            int.TryParse(textBox4.Text, out id);
-            athlete.AthleteID = id;
+            athlete.AthleteID = globalID;
             athlete.BibNumber = textBox6.Text;
             int.TryParse(textBox5.Text, out age);
             athlete.Age = age;
@@ -87,9 +96,36 @@ namespace AthleteManagement
             athlete.LastName = textBox3.Text;
             databaseHelper.AddAthlete(athlete);
 
-            dataGridView1.Rows[0].Cells[0].Value = databaseHelper.GetAthleteById(id).FullName;
-            dataGridView1.Rows[0].Cells[1].Value = databaseHelper.GetAthleteById(id).AthleteID;
-            dataGridView1.Rows[0].Cells[2].Value = databaseHelper.GetAthleteById(id).Age;
+            athletes = databaseHelper.GetAllAthletes();
+            dataGridView1.Rows.Add(1);
+            for (int i = 0; i < athletes.Count(); i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = athletes[i].FullName;
+                dataGridView1.Rows[i].Cells[1].Value = athletes[i].AthleteID;
+                dataGridView1.Rows[i].Cells[2].Value = athletes[i].Age;
+            }
+            globalID++;
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Visible = false;
+            AddButton.Visible = false;
+            EditButton.Visible = false;
+            DeleteButton.Visible = false;
+            textBox1.Visible = false;
+            textBox2.Visible = true;
+            textBox3.Visible = true;
+            textBox4.Visible = true;
+            textBox5.Visible = true;
+            textBox6.Visible = true;
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+            NextBttn.Visible = true;
+            PreviousBttn.Visible = true;
         }
     }
 }
