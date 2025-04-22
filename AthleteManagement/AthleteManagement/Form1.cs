@@ -15,8 +15,8 @@ namespace AthleteManagement
 {
     public partial class Form1 : Form
     {
-        //DatabaseHelper databaseHelper = new DatabaseHelper("C:\\Users\\sbha527\\Documents\\ah\\SY24-25\\AthleteManagement\\AthleteManagement\\bin\\Debug\\Athletes.xml");
-        DatabaseHelper databaseHelper = new DatabaseHelper("C:\\Users\\buntu\\OneDrive\\Documents\\School Code\\SY24-25\\AthleteManagement\\AthleteManagement\\bin\\Debug\\DebugAthletes.xml");
+        DatabaseHelper databaseHelper = new DatabaseHelper("C:\\Users\\sbha527\\Documents\\ah\\SY24-25\\AthleteManagement\\AthleteManagement\\bin\\Debug\\Athletes.xml");
+        //DatabaseHelper databaseHelper = new DatabaseHelper("C:\\Users\\buntu\\OneDrive\\Documents\\School Code\\SY24-25\\AthleteManagement\\AthleteManagement\\bin\\Debug\\DebugAthletes.xml");
         int globalID = 1;
         List<Athlete> athletes = new List<Athlete> {};
         int editTracker = 0;
@@ -137,30 +137,37 @@ namespace AthleteManagement
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = false;
-            AddButton.Visible = false;
-            EditButton.Visible = false;
-            DeleteButton.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
-            textBox5.Visible = true;
-            textBox6.Visible = true;
-            label1.Visible = true;
-            label2.Visible = true;
-            label3.Visible = true;
-            label4.Visible = true;
-            label5.Visible = true;
-            NextBttn.Visible = true;
-            PreviousBttn.Visible = true;
-            FinishEdit.Visible = true;
+            if (athletes.Count() > 0)
+            {
+                dataGridView1.Visible = false;
+                AddButton.Visible = false;
+                EditButton.Visible = false;
+                DeleteButton.Visible = false;
+                textBox1.Visible = false;
+                textBox2.Visible = true;
+                textBox3.Visible = true;
+                textBox4.Visible = true;
+                textBox5.Visible = true;
+                textBox6.Visible = true;
+                label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
+                NextBttn.Visible = true;
+                PreviousBttn.Visible = true;
+                FinishEdit.Visible = true;
 
-            textBox2.Text = athletes[editTracker].FirstName;
-            textBox3.Text = athletes[editTracker].LastName;
-            textBox4.Text = athletes[editTracker].AthleteID.ToString();
-            textBox5.Text = athletes[editTracker].Age.ToString();
-            textBox6.Text = athletes[editTracker].BibNumber;
+                textBox2.Text = athletes[editTracker].FirstName;
+                textBox3.Text = athletes[editTracker].LastName;
+                textBox4.Text = athletes[editTracker].AthleteID.ToString();
+                textBox5.Text = athletes[editTracker].Age.ToString();
+                textBox6.Text = athletes[editTracker].BibNumber;
+            }
+            else
+            {
+                MessageBox.Show("No Athletes Available To Edit","",MessageBoxButtons.OK);
+            }
         }
 
         private void NextBttn_Click(object sender, EventArgs e)
@@ -292,30 +299,37 @@ namespace AthleteManagement
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = false;
-            AddButton.Visible = false;
-            EditButton.Visible = false;
-            DeleteButton.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
-            textBox5.Visible = true;
-            textBox6.Visible = true;
-            label1.Visible = true;
-            label2.Visible = true;
-            label3.Visible = true;
-            label4.Visible = true;
-            label5.Visible = true;
-            NextBttn.Visible = true;
-            PreviousBttn.Visible = true;
-            Delete.Visible = true;
+            if (athletes.Count() > 0)
+            {
+                dataGridView1.Visible = false;
+                AddButton.Visible = false;
+                EditButton.Visible = false;
+                DeleteButton.Visible = false;
+                textBox1.Visible = false;
+                textBox2.Visible = true;
+                textBox3.Visible = true;
+                textBox4.Visible = true;
+                textBox5.Visible = true;
+                textBox6.Visible = true;
+                label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
+                NextBttn.Visible = true;
+                PreviousBttn.Visible = true;
+                Delete.Visible = true;
 
-            textBox2.Text = athletes[editTracker].FirstName;
-            textBox3.Text = athletes[editTracker].LastName;
-            textBox4.Text = athletes[editTracker].AthleteID.ToString();
-            textBox5.Text = athletes[editTracker].Age.ToString();
-            textBox6.Text = athletes[editTracker].BibNumber;
+                textBox2.Text = athletes[editTracker].FirstName;
+                textBox3.Text = athletes[editTracker].LastName;
+                textBox4.Text = athletes[editTracker].AthleteID.ToString();
+                textBox5.Text = athletes[editTracker].Age.ToString();
+                textBox6.Text = athletes[editTracker].BibNumber;
+            }
+            else
+            {
+                MessageBox.Show("No Athletes Available To Delete", "", MessageBoxButtons.OK);
+            }
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -356,6 +370,13 @@ namespace AthleteManagement
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
+        }
+
+        private void TimerForm_Click(object sender, EventArgs e)
+        {
+            StopWatch stopWatch = new StopWatch();
+            stopWatch.Show();
+            this.Hide();
         }
     }
 }
