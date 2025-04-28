@@ -263,7 +263,7 @@
             // 
             this.TimerForm.Location = new System.Drawing.Point(35, 383);
             this.TimerForm.Name = "TimerForm";
-            this.TimerForm.Size = new System.Drawing.Size(75, 23);
+            this.TimerForm.Size = new System.Drawing.Size(99, 23);
             this.TimerForm.TabIndex = 20;
             this.TimerForm.Text = "To Timer";
             this.TimerForm.UseVisualStyleBackColor = true;
