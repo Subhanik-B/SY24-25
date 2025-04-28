@@ -68,5 +68,15 @@ namespace AthleteManagement
             form1.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            seconds = 0;
+            minutes = 0;
+            ms = 0;
+            label2.Text = "0";
+            label4.Text = "00";
+            label5.Text = "00";
+        }
     }
 }
