@@ -376,7 +376,24 @@ namespace AthleteManagement
         {
             StopWatch stopWatch = new StopWatch();
             stopWatch.Show();
-            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CSV_Export csv = new CSV_Export();
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string lePath = saveFileDialog1.FileName;
+                // Get your race results data (replace with your actual data source)
+                List<ParticipantResult> results = GetRaceResults(); // You need to implement this method
+                csv.ExportToCsv(results, lePath);
+            }
+        }
+
+        private List<ParticipantResult> GetRaceResults()
+        {
+
+            return null;
         }
     }
 }

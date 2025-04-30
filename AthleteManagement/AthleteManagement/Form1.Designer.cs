@@ -49,6 +49,8 @@
             this.FinishEdit = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.TimerForm = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -265,15 +267,31 @@
             this.TimerForm.Name = "TimerForm";
             this.TimerForm.Size = new System.Drawing.Size(99, 23);
             this.TimerForm.TabIndex = 20;
-            this.TimerForm.Text = "To Timer";
+            this.TimerForm.Text = "Show Timer";
             this.TimerForm.UseVisualStyleBackColor = true;
             this.TimerForm.Click += new System.EventHandler(this.TimerForm_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(140, 383);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Export to CSV";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "csv";
+            this.saveFileDialog1.Filter = "*.csv|";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.TimerForm);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.FinishEdit);
@@ -328,6 +346,8 @@
         private System.Windows.Forms.Button FinishEdit;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button TimerForm;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

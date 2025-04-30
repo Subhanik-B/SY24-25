@@ -41,6 +41,7 @@
             this.Milliseconds2 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.Lap_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -124,22 +125,22 @@
             // 
             // Milliseconds2
             // 
-            this.Milliseconds2.Interval = 10;
+            this.Milliseconds2.Interval = 1;
             this.Milliseconds2.Tick += new System.EventHandler(this.Milliseconds2_Tick);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(44, 314);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(88, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "To Edit";
+            this.button1.Text = "Hide Timer";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(357, 204);
+            this.button2.Location = new System.Drawing.Point(310, 204);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;
@@ -147,11 +148,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // Lap_Button
+            // 
+            this.Lap_Button.Location = new System.Drawing.Point(394, 204);
+            this.Lap_Button.Name = "Lap_Button";
+            this.Lap_Button.Size = new System.Drawing.Size(75, 23);
+            this.Lap_Button.TabIndex = 11;
+            this.Lap_Button.Text = "Lap";
+            this.Lap_Button.UseVisualStyleBackColor = true;
+            this.Lap_Button.Click += new System.EventHandler(this.Lap_Button_Click);
+            // 
             // StopWatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Lap_Button);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.Timer Milliseconds2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Lap_Button;
     }
 }

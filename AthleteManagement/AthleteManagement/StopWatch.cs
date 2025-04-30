@@ -64,8 +64,6 @@ namespace AthleteManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
             this.Hide();
         }
 
@@ -77,6 +75,13 @@ namespace AthleteManagement
             label2.Text = "0";
             label4.Text = "00";
             label5.Text = "00";
+        }
+
+        private void Lap_Button_Click(object sender, EventArgs e)
+        {
+            int seconds = this.seconds;
+            int minutes = this.minutes;
+            int milliseconds = ms;
         }
     }
 }
