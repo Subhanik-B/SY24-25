@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml;
+using System.Runtime.Remoting.Channels;
+using Microsoft.Win32;
 
 namespace AthleteManagement
 {
@@ -20,6 +22,8 @@ namespace AthleteManagement
         int globalID = 1;
         List<Athlete> athletes = new List<Athlete> {};
         int editTracker = 0;
+        int dataIndex = 0;
+        public Athlete transferAthlete = new Athlete();
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +35,7 @@ namespace AthleteManagement
             dataGridView1.Columns.Add("ID", "ID");
             dataGridView1.Columns.Add("Age", "Age");
             dataGridView1.Columns.Add("Bib Number", "Bib Number");
+            dataGridView1.Columns.Add("Race Time", "Race Time");
             
             athletes = databaseHelper.GetAllAthletes();
             try
@@ -385,15 +390,21 @@ namespace AthleteManagement
             {
                 string lePath = saveFileDialog1.FileName;
                 // Get your race results data (replace with your actual data source)
-                List<ParticipantResult> results = GetRaceResults(); // You need to implement this method
+                // You need to implement this method
+                List<ParticipantResult> results = GetRaceResults();
                 csv.ExportToCsv(results, lePath);
             }
         }
 
         private List<ParticipantResult> GetRaceResults()
         {
-
             return null;
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            dataIndex = dataGridView1.CurrentCell.RowIndex;
+            transferAthlete = athletes[dataIndex];
         }
     }
 }

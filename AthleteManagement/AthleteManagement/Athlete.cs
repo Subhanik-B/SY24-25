@@ -17,6 +17,7 @@ namespace AthleteManagement
         public int? Age { get; set; }
         public string Gender { get; set; }
         public string ContactInfo { get; set; }
+        public string RaceTime { get; set; }
         public string FullName => $"{FirstName} {LastName}";
         public Athlete() { }
     }

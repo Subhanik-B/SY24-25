@@ -38,7 +38,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Seconds2 = new System.Windows.Forms.Timer(this.components);
-            this.Milliseconds2 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Lap_Button = new System.Windows.Forms.Button();
@@ -123,11 +122,6 @@
             this.Seconds2.Interval = 1000;
             this.Seconds2.Tick += new System.EventHandler(this.Seconds2_Tick);
             // 
-            // Milliseconds2
-            // 
-            this.Milliseconds2.Interval = 1;
-            this.Milliseconds2.Tick += new System.EventHandler(this.Milliseconds2_Tick);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(44, 314);
@@ -192,7 +186,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer Seconds2;
-        private System.Windows.Forms.Timer Milliseconds2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Lap_Button;
