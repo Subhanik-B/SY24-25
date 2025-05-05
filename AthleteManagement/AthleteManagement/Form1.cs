@@ -119,6 +119,7 @@ namespace AthleteManagement
             athlete.Age = age;
             athlete.FirstName = textBox2.Text;
             athlete.LastName = textBox3.Text;
+
             databaseHelper.AddAthlete(athlete);
 
             athletes = databaseHelper.GetAllAthletes();
@@ -137,7 +138,6 @@ namespace AthleteManagement
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
-
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -401,10 +401,29 @@ namespace AthleteManagement
             return null;
         }
 
+        public void updateTimes()
+        {
+            for (int i = 0; i < athletes.Count(); i++)
+            {
+                if (athletes[i].FullName.Equals(transferAthlete.FullName))
+                {
+                    athletes[i] = transferAthlete; 
+                }
+            }
+            
+            dataGridView1.Rows[dataIndex].Cells[5].Value = athletes[dataIndex].RaceTime;
+        }
+
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             dataIndex = dataGridView1.CurrentCell.RowIndex;
-            transferAthlete = athletes[dataIndex];
+            try
+            {
+                transferAthlete = athletes[dataIndex];
+            } catch (Exception ex)
+            {
+
+            }
         }
     }
 }

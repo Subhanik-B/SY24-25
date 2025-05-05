@@ -65,6 +65,7 @@ namespace AthleteManagement
         private void Lap_Button_Click(object sender, EventArgs e)
         {
             form.transferAthlete.RaceTime = minutes.ToString() + " : " + seconds.ToString();
+            form.updateTimes();
         }
     }
 }
